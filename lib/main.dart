@@ -1,0 +1,130 @@
+import 'package:flutter/material.dart';
+import 'package:izmircevirme/anaEkran.dart';
+
+void main() => runApp(new MyApp(
+
+));
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new LoginPage(),
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+    );
+  }
+}
+
+class LoginPage extends StatefulWidget{
+  @override
+  State createState() => new LoginPageState();
+}
+
+class LoginPageState extends State<LoginPage>{
+
+
+ @override
+  void initState() {
+    super.initState();
+ }
+
+  @override
+  Widget build(BuildContext context){
+    return new Scaffold(
+      backgroundColor: Colors.black,
+      body:new Stack(
+        fit:StackFit.expand,
+        children: <Widget>[
+          new Column(
+            children: <Widget>[
+              new Padding(
+              padding: const EdgeInsets.only(top:30.0),
+      ),
+              new Image(
+                image: new AssetImage("assets/izmirde-cevirme-radar.png"),
+                fit:BoxFit.cover,
+              ),
+              new Form(child: new Theme(
+                data: new ThemeData(
+             brightness: Brightness.dark,
+              primarySwatch: Colors.teal,
+                  inputDecorationTheme: new InputDecorationTheme(
+                    labelStyle: new TextStyle(
+                      color: Colors.white70,
+                      fontSize: 20.0
+                    ),
+                  ),
+               ),
+                child: new Container(
+                  padding: const EdgeInsets.all(30.0),
+                  child: new Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      new TextFormField(
+                        decoration: new InputDecoration(
+                          labelText: 'Kullanıcı Adı',
+                        ),
+                      ),
+                      new TextFormField(
+                        decoration: new InputDecoration(
+                          labelText: 'Şifre',
+                        ),
+                        obscureText: true,
+                      ),
+                      new Padding(
+                        padding: const EdgeInsets.only(top:30.0),
+                      ),
+                      new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          new MaterialButton(
+                            height: 40.0,
+                            minWidth: 140.0,
+                            color: Colors.green,
+                            textColor: Colors.white,
+                            child: new Text("GİRİŞ"),
+                            onPressed: ()=> {},
+                            splashColor: Colors.redAccent,
+                          ),
+                          new MaterialButton(
+                            height: 40.0,
+                            minWidth: 80.0,
+                            color: Colors.teal,
+                            textColor: Colors.white,
+                            child: new Text("ŞİFREMİ UNUTTUM"),
+                            onPressed: ()=> {},
+                            splashColor: Colors.redAccent,
+                          ),
+                        ],
+                      ),
+                      new Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          new Padding(padding: const EdgeInsets.only(top:30.0),),
+                          new MaterialButton(
+                            height: 40.0,
+                            minWidth: 220.0,
+                            color: Colors.cyan,
+                            textColor: Colors.white,
+                            child: new Text("KAYIT OL"),
+                            onPressed: ()=> {},
+                            splashColor: Colors.redAccent,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
