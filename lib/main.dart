@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:izmircevirme/fourthpage.dart';
+import 'package:izmircevirme/secondpage.dart';
+import 'package:izmircevirme/thirdpage.dart';
 import 'package:izmircevirme/anaEkran.dart';
 
-void main() => runApp(new MyApp(
-
-));
+void main() =>
+    runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
-
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new LoginPage(),
+      // Sayfa Geçiş İşlemleri
+      // Routes Oluştur
+      routes: <String, WidgetBuilder>{
+        // Sonra Sayfaları Tanıt
+        // 2.Sayfa
+        SecondDartPAGE.routeName:(BuildContext context) =>
+        new SecondDartPAGE(),
+        // 3.Sayfa
+        ThirdDartPAGE.routeName: (BuildContext context) =>
+        new ThirdDartPAGE(),
+        // 4.Sayfa
+        FourthDartPAGE.routeName: (BuildContext context) =>
+        new FourthDartPAGE()
+      },
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -19,46 +34,46 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoginPage extends StatefulWidget{
+class LoginPage extends StatefulWidget {
   @override
   State createState() => new LoginPageState();
 }
 
-class LoginPageState extends State<LoginPage>{
+class LoginPageState extends State<LoginPage> {
 
-
- @override
-  void initState() {
-    super.initState();
- }
 
   @override
-  Widget build(BuildContext context){
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: Colors.black,
-      body:new Stack(
-        fit:StackFit.expand,
+      body: new Stack(
+        fit: StackFit.expand,
         children: <Widget>[
           new Column(
             children: <Widget>[
               new Padding(
-              padding: const EdgeInsets.only(top:30.0),
-      ),
+                padding: const EdgeInsets.only(top: 30.0),
+              ),
               new Image(
                 image: new AssetImage("assets/izmirde-cevirme-radar.png"),
-                fit:BoxFit.cover,
+                fit: BoxFit.cover,
               ),
               new Form(child: new Theme(
                 data: new ThemeData(
-             brightness: Brightness.dark,
-              primarySwatch: Colors.teal,
+                  brightness: Brightness.dark,
+                  primarySwatch: Colors.teal,
                   inputDecorationTheme: new InputDecorationTheme(
                     labelStyle: new TextStyle(
-                      color: Colors.white70,
-                      fontSize: 20.0
+                        color: Colors.white70,
+                        fontSize: 20.0
                     ),
                   ),
-               ),
+                ),
                 child: new Container(
                   padding: const EdgeInsets.all(30.0),
                   child: new Column(
@@ -76,7 +91,7 @@ class LoginPageState extends State<LoginPage>{
                         obscureText: true,
                       ),
                       new Padding(
-                        padding: const EdgeInsets.only(top:30.0),
+                        padding: const EdgeInsets.only(top: 30.0),
                       ),
                       new Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -87,7 +102,7 @@ class LoginPageState extends State<LoginPage>{
                             color: Colors.green,
                             textColor: Colors.white,
                             child: new Text("GİRİŞ"),
-                            onPressed: ()=> {},
+                            onPressed: _girisSayfasi,
                             splashColor: Colors.redAccent,
                           ),
                           new MaterialButton(
@@ -96,7 +111,7 @@ class LoginPageState extends State<LoginPage>{
                             color: Colors.teal,
                             textColor: Colors.white,
                             child: new Text("ŞİFREMİ UNUTTUM"),
-                            onPressed: ()=> {},
+                            onPressed: _sifremiUnuttumPage,
                             splashColor: Colors.redAccent,
                           ),
                         ],
@@ -104,14 +119,15 @@ class LoginPageState extends State<LoginPage>{
                       new Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          new Padding(padding: const EdgeInsets.only(top:30.0),),
+                          new Padding(
+                            padding: const EdgeInsets.only(top: 30.0),),
                           new MaterialButton(
                             height: 40.0,
                             minWidth: 220.0,
                             color: Colors.cyan,
                             textColor: Colors.white,
                             child: new Text("KAYIT OL"),
-                            onPressed: ()=> {},
+                            onPressed: _kayitolSayfasi,
                             splashColor: Colors.redAccent,
                           ),
                         ],
@@ -126,5 +142,16 @@ class LoginPageState extends State<LoginPage>{
         ],
       ),
     );
+  }
+  void _sifremiUnuttumPage() {
+    Navigator.of(context).pushNamed(SecondDartPAGE.routeName);
+  }
+
+  void _girisSayfasi() {
+    Navigator.of(context).pushNamed(ThirdDartPAGE.routeName);
+  }
+
+  void _kayitolSayfasi() {
+    Navigator.of(context).pushNamed(FourthDartPAGE.routeName);
   }
 }
