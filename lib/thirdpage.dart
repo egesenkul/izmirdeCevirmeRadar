@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:izmircevirme/main.dart';
+import 'package:izmircevirme/newNewsPage.dart';
+import 'package:izmircevirme/settingsPage.dart';
 
 class ThirdDartPAGE extends StatefulWidget {
 
@@ -29,14 +32,17 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                 ),
               ),
               decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  fit:BoxFit.fill,
-                    image: new NetworkImage("https://bilgibirikimi.net/wp-content/uploads/2012/04/izmir-saat-kulesi.jpg"))
+                  image: new DecorationImage(
+                      fit:BoxFit.fill,
+                      image: new NetworkImage("https://bilgibirikimi.net/wp-content/uploads/2012/04/izmir-saat-kulesi.jpg"))
               ),
             ),
             new ListTile(
               title:  new Text("Yeni Haber"),
               trailing: new Icon(Icons.add),
+              onTap: () {
+                Navigator.push(context, new MaterialPageRoute(builder: (context) => new NewNewsPage()));
+              }
             ),
             new Divider(),
             new ListTile(
@@ -77,12 +83,16 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             new ListTile(
               title:  new Text("Ayarlar"),
               trailing: new Icon(Icons.settings),
-              onTap: ()=>  Navigator.of(context).pop(),
+                onTap: () {
+                  Navigator.push(context, new MaterialPageRoute(builder: (context) => new SettingsPage()));
+                }
             ),
             new ListTile(
               title:  new Text("Çıkış"),
               trailing: new Icon(Icons.power_settings_new),
-              onTap: ()=>  Navigator.of(context).pop(),
+                onTap: () {
+                  Navigator.push(context, new MaterialPageRoute(builder: (context) => new MyApp()));
+                }
             ),
           ],
         ),
