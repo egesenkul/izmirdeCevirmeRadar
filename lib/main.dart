@@ -50,17 +50,17 @@ class LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.blue,
       body: new Stack(
         fit: StackFit.expand,
         children: <Widget>[
           new Column(
             children: <Widget>[
               new Padding(
-                padding: const EdgeInsets.only(top: 30.0),
+                padding: const EdgeInsets.only(top: 90.0),
               ),
               new Image(
-                image: new AssetImage("assets/izmirde-cevirme-radar.png"),
+                image: new AssetImage("assets/izmirde_cevirme_logo.png"),
                 fit: BoxFit.cover,
               ),
               new Form(child: new Theme(
@@ -79,6 +79,9 @@ class LoginPageState extends State<LoginPage> {
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
+                      new Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                      ),
                       new TextFormField(
                         decoration: new InputDecoration(
                           labelText: 'Kullanıcı Adı',
@@ -91,7 +94,7 @@ class LoginPageState extends State<LoginPage> {
                         obscureText: true,
                       ),
                       new Padding(
-                        padding: const EdgeInsets.only(top: 30.0),
+                        padding: const EdgeInsets.only(top: 55.0),
                       ),
                       new Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -108,7 +111,7 @@ class LoginPageState extends State<LoginPage> {
                           new MaterialButton(
                             height: 40.0,
                             minWidth: 80.0,
-                            color: Colors.teal,
+                            color: Colors.deepOrange,
                             textColor: Colors.white,
                             child: new Text("ŞİFREMİ UNUTTUM"),
                             onPressed: _sifremiUnuttumPage,
@@ -124,7 +127,7 @@ class LoginPageState extends State<LoginPage> {
                           new MaterialButton(
                             height: 40.0,
                             minWidth: 220.0,
-                            color: Colors.cyan,
+                            color: Colors.indigo,
                             textColor: Colors.white,
                             child: new Text("KAYIT OL"),
                             onPressed: _kayitolSayfasi,

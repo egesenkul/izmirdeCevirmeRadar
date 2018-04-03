@@ -28,6 +28,7 @@ flutter:
   assets:
       - assets/izmirde-cevirme-radar.jpg
       - assets/izmirde-cevirme-radar.png
+      - assets/izmirde_cevirme_logo.png
 
   # To add assets to your application, add an assets section, like this:
 

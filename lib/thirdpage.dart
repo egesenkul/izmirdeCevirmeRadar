@@ -89,6 +89,14 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             ),
             new Divider(),
             new ListTile(
+                title:  new Text("Hakkımızda"),
+                trailing: new Icon(Icons.perm_device_information),
+                onTap: () {
+                  _onPress();
+                  Navigator.push(context, new MaterialPageRoute(builder: (context) => new SettingsPage()));
+                }
+            ),
+            new ListTile(
               title:  new Text("Ayarlar"),
               trailing: new Icon(Icons.settings),
                 onTap: () {
