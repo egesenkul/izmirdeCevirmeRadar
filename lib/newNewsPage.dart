@@ -10,7 +10,7 @@ class _NewNewsPageState extends State<NewNewsPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Yeni Haber Sayfası"),
+        title: new Text("Haber Oluştur"),
       ),
     );
   }

@@ -10,7 +10,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Ayarlar Sayfası"),
+        title: new Text("Ayarlar"),
       ),
     );
   }

@@ -41,6 +41,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               title:  new Text("Yeni Haber"),
               trailing: new Icon(Icons.add),
               onTap: () {
+                _onPress();
                 Navigator.push(context, new MaterialPageRoute(builder: (context) => new NewNewsPage()));
               }
             ),
@@ -84,6 +85,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               title:  new Text("Ayarlar"),
               trailing: new Icon(Icons.settings),
                 onTap: () {
+                  _onPress();
                   Navigator.push(context, new MaterialPageRoute(builder: (context) => new SettingsPage()));
                 }
             ),
@@ -91,6 +93,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               title:  new Text("Çıkış"),
               trailing: new Icon(Icons.power_settings_new),
                 onTap: () {
+                _onPress();
                   Navigator.push(context, new MaterialPageRoute(builder: (context) => new MyApp()));
                 }
             ),
