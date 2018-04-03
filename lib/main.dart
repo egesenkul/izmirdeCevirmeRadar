@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         new FourthDartPAGE()
       },
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.white,
       ),
     );
   }

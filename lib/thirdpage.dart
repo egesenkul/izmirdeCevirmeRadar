@@ -23,8 +23,8 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
         child: new ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-              accountName: new Text("Ege Şenkul",style: new TextStyle(fontWeight: FontWeight.bold),),
-              accountEmail: new Text("egesenkul35@hotmail.com"),
+              accountName: new Text("Ege Şenkul",style: new TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+              accountEmail: new Text("egesenkul35@hotmail.com",style:new TextStyle(fontWeight: FontWeight.bold,color: Colors.white) ,),
               currentAccountPicture: new GestureDetector(
                 onTap: null,
                 child: new CircleAvatar(
@@ -44,6 +44,13 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                 _onPress();
                 Navigator.push(context, new MaterialPageRoute(builder: (context) => new NewNewsPage()));
               }
+            ),
+            new ListTile(
+                title:  new Text("Benim Gönderilerim"),
+                trailing: new Icon(Icons.person),
+                onTap: () {
+                  _onPress();
+                }
             ),
             new Divider(),
             new ListTile(
