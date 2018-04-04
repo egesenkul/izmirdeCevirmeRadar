@@ -57,7 +57,7 @@ class LoginPageState extends State<LoginPage> {
           new Column(
             children: <Widget>[
               new Padding(
-                padding: const EdgeInsets.only(top: 90.0),
+                padding: const EdgeInsets.only(top: 50.0),
               ),
               new Image(
                 image: new AssetImage("assets/izmirde_cevirme_logo.png"),
@@ -79,9 +79,6 @@ class LoginPageState extends State<LoginPage> {
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      new Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                      ),
                       new TextFormField(
                         decoration: new InputDecoration(
                           labelText: 'Kullanıcı Adı',
