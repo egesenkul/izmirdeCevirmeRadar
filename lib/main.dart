@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new LoginPage(),
+      debugShowCheckedModeBanner: false,
       title: 'İzmir Çevirme Radar',
       // Sayfa Geçiş İşlemleri
       // Routes Oluştur
