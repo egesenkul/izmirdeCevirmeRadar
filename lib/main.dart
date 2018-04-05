@@ -51,13 +51,12 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: Colors.blue,
-      body: new Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
+      body: new Container(
+        child:
           new Column(
             children: <Widget>[
               new Padding(
-                padding: const EdgeInsets.only(top: 50.0),
+                padding: const EdgeInsets.only(top: 30.0),
               ),
               new Image(
                 image: new AssetImage("assets/izmirde_cevirme_logo.png"),
@@ -137,12 +136,13 @@ class LoginPageState extends State<LoginPage> {
                 ),
               ),
               )
-            ],
-          )
+
         ],
       ),
+    ),
     );
   }
+
   void _sifremiUnuttumPage() {
     Navigator.of(context).pushNamed(SecondDartPAGE.routeName);
   }
