@@ -53,7 +53,7 @@ class LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.blue,
       body: new Container(
         child:
-          new Column(
+          new ListView(
             children: <Widget>[
               new Padding(
                 padding: const EdgeInsets.only(top: 30.0),
