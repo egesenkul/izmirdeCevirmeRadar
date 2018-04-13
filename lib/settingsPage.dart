@@ -12,6 +12,9 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: new AppBar(
         title: new Text("Ayarlar"),
       ),
+      body: new Container(
+        child: new Text('ege')
+      ),
     );
   }
 }
