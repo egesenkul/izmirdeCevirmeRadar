@@ -30,6 +30,12 @@ flutter:
       - assets/izmirde-cevirme-radar.jpg
       - assets/izmirde-cevirme-radar.png
       - assets/izmirde_cevirme_logo.png
+      - assets/resim1.jpg
+      - assets/resim2.jpg
+      - assets/resim3.jpg
+      - assets/resim4.jpg
+      - assets/resim5.jpg
+      - assets/resim6.jpg
 
   # To add assets to your application, add an assets section, like this:
 
