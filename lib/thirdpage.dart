@@ -125,48 +125,134 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       ),
       body: new ListView(
         children: <Widget>[
-          new ListTile(
-            leading: new Image.asset("assets/izmirde_cevirme_logo.png"),
-            title: new Text("İzmir'den çıkarken Çeşme Otobanı Radar",
-              style: new TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: new Text('Radarlar ve Çevirmeler'),
+          new Padding(
+              padding: const EdgeInsets.only(top: 4.0),
+           ),
+            new Card(
+            child: new Column(
+              children: <Widget>[
+                new Image.asset(
+                  'assets/resim4.jpg',
+                  width: 400.0,
+                  height: 250.0,
+                  fit: BoxFit.fill,
+                ),
+                new ListTile(
+                  trailing: new Icon(Icons.message),
+                  title: new Text(
+                    "Amcalar Aydın Yolunda Bekliyor",
+                    style: new TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: new Text("Radarlar ve Çevirmeler "),
+                ),
+              ],
+            ),
           ),
-          new ListTile(
-            leading: new Image.asset("assets/izmirde_cevirme_logo.png"),
-            title: new Text("Dokuz Eylül Hastanesi Çekiyorlar",
-              style: new TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: new Text('Çekiciler'),
+            new Card(
+            child: new Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                new Image.asset(
+                  'assets/resim1.jpg',
+                  width: 400.0,
+                  height: 250.0,
+                  fit: BoxFit.fill,
+                ),
+                new ListTile(
+                  trailing: new Icon(Icons.message),
+                  title: new Text(
+                    "Konak 4 Yol Ağzı Kaza",
+                    style: new TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: new Text("Kazalar"),
+                ),
+              ],
+            ),
           ),
-          new ListTile(
-            leading: new Image.asset("assets/izmirde_cevirme_logo.png"),
-            title: new Text("Uçanyol Yaralanmalı Kaza",
-              style: new TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: new Text('Kazalar'),
-          ),
-          new ListTile(
-            leading: new Image.asset("assets/izmirde_cevirme_logo.png"),
-            title: new Text("Ata Caddesi Tıkalı",
-              style: new TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: new Text('Yol Bilgisi'),
-          ),
-          new ListTile(
-            leading: new Image.asset("assets/izmirde_cevirme_logo.png"),
-            title: new Text("Ekonomi Çekiyorlar",
-              style: new TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: new Text('Çekiciler'),
-          ),
-          new ListTile(
-            leading: new Image.asset("assets/izmirde_cevirme_logo.png"),
-            title: new Text("Sahibi Onat Büfe'den Alabilir",
-              style: new TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: new Text('Kayıp Eşyalar'),
-          ),
-          new ListTile(
-            leading: new Image.asset("assets/izmirde_cevirme_logo.png"),
-            title: new Text("Mobil Uygulamamız Yayınlanmıştır",
-              style: new TextStyle(fontWeight: FontWeight.bold),),
-            subtitle: new Text('Duyurular'),
-          ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/resim2.jpg',
+                    width: 400.0,
+                    height: 250.0,
+                    fit: BoxFit.fill,
+                  ),
+                  new ListTile(
+                    trailing: new Icon(Icons.message),
+                    title: new Text(
+                      "Alsancak Hamamcı Ayşeye Bırakıyom",
+                      style: new TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: new Text("Kayıp Eşyalar"),
+                  ),
+                ],
+              ),
+            ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/resim3.jpg',
+                    width: 400.0,
+                    height: 250.0,
+                    fit: BoxFit.fill,
+                  ),
+                  new ListTile(
+                    trailing: new Icon(Icons.message),
+                    title: new Text(
+                      "Bostanlı Sahil Pert",
+                      style: new TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: new Text("Yol Bilgisi"),
+                  ),
+                ],
+              ),
+            ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/resim5.jpg',
+                    width: 400.0,
+                    height: 250.0,
+                    fit: BoxFit.fill,
+                  ),
+                  new ListTile(
+                    trailing: new Icon(Icons.message),
+                    title: new Text(
+                      "Ege Şenkul Evi Önü Kaza",
+                      style: new TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: new Text("Kazalar"),
+                  ),
+                ],
+              ),
+            ),
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new Image.asset(
+                    'assets/resim6.jpg',
+                    width: 400.0,
+                    height: 250.0,
+                    fit: BoxFit.fill,
+                  ),
+                  new ListTile(
+                    trailing: new Icon(Icons.message),
+                    title: new Text(
+                      "Yeşilköy Giriş Radar",
+                      style: new TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: new Text("Radarlar ve Çevirmeler"),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
