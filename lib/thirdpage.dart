@@ -140,7 +140,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       decoration: new BoxDecoration(
                         border: new Border.all(color: Colors.black12),
                           shape: BoxShape.circle,
-                          image: new DecorationImage(image: AssetImage('assets/hesap.jpg'))
+                          image: new DecorationImage(image: new AssetImage('assets/hesap.jpg'))
                       ),
                     ),
                     new Text("Rıza Özonuk",style: new TextStyle(fontWeight: FontWeight.bold)),
@@ -193,7 +193,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       decoration: new BoxDecoration(
                           border: new Border.all(color: Colors.black12),
                           shape: BoxShape.circle,
-                          image: new DecorationImage(image: AssetImage('assets/sirma.jpg'))
+                          image: new DecorationImage(image: new AssetImage('assets/sirma.jpg'))
                       ),
                     ),
                     new Text("Sırma Özsoydan",style: new TextStyle(fontWeight: FontWeight.bold)),
@@ -246,7 +246,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                         decoration: new BoxDecoration(
                             border: new Border.all(color: Colors.black12),
                             shape: BoxShape.circle,
-                            image: new DecorationImage(image: AssetImage('assets/hande.jpg'))
+                            image: new DecorationImage(image: new AssetImage('assets/hande.jpg'))
                         ),
                       ),
                       new Text("Hande Orçan",style: new TextStyle(fontWeight: FontWeight.bold)),
@@ -300,7 +300,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                         decoration: new BoxDecoration(
                             border: new Border.all(color: Colors.black12),
                             shape: BoxShape.circle,
-                            image: new DecorationImage(image: AssetImage('assets/silan.jpg'))
+                            image: new DecorationImage(image: new AssetImage('assets/silan.jpg'))
                         ),
                       ),
                       new Text("Şilan Muhsinoğlu",style: new TextStyle(fontWeight: FontWeight.bold)),
@@ -354,7 +354,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                         decoration: new BoxDecoration(
                             border: new Border.all(color: Colors.black12),
                             shape: BoxShape.circle,
-                            image: new DecorationImage(image: AssetImage('assets/ege.jpg'))
+                            image: new DecorationImage(image: new AssetImage('assets/ege.jpg'))
                         ),
                       ),
                       new Text("Ege Şenkul",style: new TextStyle(fontWeight: FontWeight.bold)),
@@ -408,7 +408,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                         decoration: new BoxDecoration(
                             border: new Border.all(color: Colors.black12),
                             shape: BoxShape.circle,
-                            image: new DecorationImage(image: AssetImage('assets/onat.jpg'))
+                            image: new DecorationImage(image: new AssetImage('assets/onat.jpg'))
                         ),
                       ),
                       new Text("Onat Göksel",style: new TextStyle(fontWeight: FontWeight.bold)),

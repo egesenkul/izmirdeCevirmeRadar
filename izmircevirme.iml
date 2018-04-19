@@ -9,6 +9,10 @@
       <excludeFolder url="file://$MODULE_DIR$/ios/Pods/.symlinks/plugins/image_picker-0.4.1/build" />
       <excludeFolder url="file://$MODULE_DIR$/ios/Pods/.symlinks/plugins/image_picker-0.4.1/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/ios/Pods/.symlinks/plugins/image_picker-0.4.1/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/Pods/.symlinks/plugins/image_picker/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/Pods/.symlinks/plugins/image_picker/build" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/Pods/.symlinks/plugins/image_picker/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/ios/Pods/.symlinks/plugins/image_picker/example/build" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
