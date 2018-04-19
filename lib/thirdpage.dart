@@ -5,6 +5,7 @@ import 'package:izmircevirme/main.dart';
 import 'package:izmircevirme/newNewsPage.dart';
 import 'package:izmircevirme/settingsPage.dart';
 
+
 class ThirdDartPAGE extends StatefulWidget {
 
   static const String routeName = "/ThirdDartPAGE";
@@ -14,6 +15,9 @@ class ThirdDartPAGE extends StatefulWidget {
 }
 
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
+  void GetUserInformations(){
+
+  }
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

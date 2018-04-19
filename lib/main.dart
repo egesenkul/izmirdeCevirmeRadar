@@ -55,33 +55,101 @@ class LoginPageState extends State<LoginPage> {
 
     FirebaseUser user = await authCevirme.signInWithGoogle(
         idToken: gSA.idToken, accessToken: gSA.accessToken);
-
+    if(user!=null){
+      _girisSayfasi;
+    }
     return user;
   }
-  void signOuy(){
+  void signOut(){
     googleSignIn.signOut();
+  }
+
+  void giris(){
+    final user = signIn().then((FirebaseUser user)=>print(user));
+        if(user!=null){
+        _girisSayfasi;
+    }
   }
 
   @override
   void initState() {
     super.initState();
   }
-
-  @override
+  Color c = const Color.fromARGB(255, 66, 165, 245);  @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: c,
       body: new Container(
         child:
           new ListView(
             children: <Widget>[
               new Padding(
-                padding: const EdgeInsets.only(top: 30.0),
+                padding: const EdgeInsets.only(left:30.0,top:30.0),
+                child: new RichText(
+                  text: new TextSpan(
+                    text: "izmirde",
+                    style:  new TextStyle(fontWeight: FontWeight.bold,fontFamily:'Ubuntu',fontSize:80.0,color: Colors.white70),
+                  ),
+                ),
               ),
-              new Image(
-                image: new AssetImage("assets/izmirde_cevirme_logo.png"),
-                fit: BoxFit.cover,
+              new Padding(
+                padding: const EdgeInsets.only(left:30.0,bottom:30.0),
+                child: new RichText(
+                  text: new TextSpan(
+                    text: "Trafik Çevirme Radar",
+                    style:  new TextStyle(fontWeight: FontWeight.w400,fontFamily:'Ubuntu',fontSize:15.0,color: Colors.white70),
+                  ),
+                ),
               ),
+              new Padding(
+                padding:const EdgeInsets.only(left:30.0,top:40.0),
+              ),
+              new Center(
+                child: new RichText(
+                  text: new TextSpan(
+                    text: "Hoşgeldiniz !",
+                    style:  new TextStyle(fontWeight: FontWeight.w500,fontFamily:'Ubuntu',fontSize:40.0,color: Colors.white70),
+                  ),
+                ),
+              ),
+              new Padding(
+                padding:const EdgeInsets.only(bottom:35.0),
+              ),
+              new Padding(
+                padding: const EdgeInsets.only(top:30.0,left:30.0,right: 30.0),
+                child: new MaterialButton(
+                height: 40.0,
+                minWidth: 140.0,
+                color: Colors.green,
+                textColor: Colors.white,
+                child: new Text("GOOGLE İLE GİRİŞ"),
+                onPressed: giris,
+                splashColor: Colors.redAccent,
+              ),
+            ),
+              new Padding(
+                padding: const EdgeInsets.only(left:30.0,top:20.0,bottom:15.0),
+                child: new RichText(
+                  text: new TextSpan(
+                    text: "Diğer Seçenekler",
+                    style:  new TextStyle(fontWeight: FontWeight.w100,fontFamily:'Ubuntu',fontSize:15.0,color: Colors.white70),
+                  ),
+                ),
+              ),
+              new Padding(
+                padding: const EdgeInsets.only(left:30.0,top:80.0),
+                child: new RichText(
+                  text: new TextSpan(
+                    text: "İzmir Trafik Çevirme uygulamasında paylaşılan bilgileri tamami ile bilgi amaçlıdır. Herhangi bir resmiyeti yoktur. "
+                        "Her üye paylaştığı gönderiler ile her türlü sorumluluğu üstlenmektedir.",
+                    style:  new TextStyle(fontWeight: FontWeight.w200,fontFamily:'Ubuntu',fontSize:15.0,color: Colors.white70),
+                  ),
+                ),
+              ),
+             // new Image(
+               // image: new AssetImage("assets/izmirde_cevirme_logo.png"),
+                //fit: BoxFit.cover,
+              //),
               new Form(child: new Theme(
                 data: new ThemeData(
                   brightness: Brightness.dark,
@@ -98,39 +166,20 @@ class LoginPageState extends State<LoginPage> {
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      new TextFormField(
-                        decoration: new InputDecoration(
-                          labelText: 'Kullanıcı Adı',
-                        ),
-                      ),
-                      new TextFormField(
-                        decoration: new InputDecoration(
-                          labelText: 'Şifre',
-                        ),
-                        obscureText: true,
-                      ),
                       new Padding(
-                        padding: const EdgeInsets.only(top: 55.0),
-                      ),
+                      padding:const EdgeInsets.only(top:20.0),
+                  ),
                       new Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          new MaterialButton(
-                            height: 40.0,
-                            minWidth: 140.0,
-                            color: Colors.green,
-                            textColor: Colors.white,
-                            child: new Text("GİRİŞ"),
-                            onPressed: ()=> signIn().then((FirebaseUser user)=>print(user)),
-                            splashColor: Colors.redAccent,
-                          ),
+
                           new MaterialButton(
                             height: 40.0,
                             minWidth: 80.0,
                             color: Colors.deepOrange,
                             textColor: Colors.white,
-                            child: new Text("ŞİFREMİ UNUTTUM"),
-                            onPressed: _sifremiUnuttumPage,
+                            child: new Text("ANA SAYFA HACK"),
+                            onPressed: _girisSayfasi,
                             splashColor: Colors.redAccent,
                           ),
                         ],
@@ -140,15 +189,7 @@ class LoginPageState extends State<LoginPage> {
                         children: <Widget>[
                           new Padding(
                             padding: const EdgeInsets.only(top: 30.0),),
-                          new MaterialButton(
-                            height: 40.0,
-                            minWidth: 220.0,
-                            color: Colors.indigo,
-                            textColor: Colors.white,
-                            child: new Text("KAYIT OL"),
-                            onPressed: _kayitolSayfasi,
-                            splashColor: Colors.redAccent,
-                          ),
+
                         ],
                       ),
                     ],
