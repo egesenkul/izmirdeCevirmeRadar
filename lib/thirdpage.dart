@@ -124,69 +124,166 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
         ),
       ),
       body: new ListView(
-        children: <Widget>[
-          new Padding(
+          children: <Widget>[
+            new Padding(
               padding: const EdgeInsets.only(top: 4.0),
            ),
             new Card(
             child: new Column(
               children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    new Container(
+                      width: 60.0,
+                      height: 60.0,
+                      margin: const EdgeInsets.all(10.0),
+                      decoration: new BoxDecoration(
+                        border: new Border.all(color: Colors.black12),
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(image: AssetImage('assets/hesap.jpg'))
+                      ),
+                    ),
+                    new Text("Rıza Özonuk",style: new TextStyle(fontWeight: FontWeight.bold)),
+                    new Expanded(
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          new Icon(Icons.more_vert,color: Colors.grey,)
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
                 new Image.asset(
                   'assets/resim4.jpg',
                   width: 400.0,
-                  height: 250.0,
+                  height: 300.0,
                   fit: BoxFit.fill,
                 ),
                 new ListTile(
-                  trailing: new Icon(Icons.message),
                   title: new Text(
                     "Amcalar Aydın Yolunda Bekliyor",
                     style: new TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: new Text("Radarlar ve Çevirmeler "),
                 ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    new Icon(Icons.favorite,color: Colors.red),
+                    new Icon(Icons.chat_bubble_outline),
+                    new Icon(Icons.turned_in_not),
+                  ],
+                ),
+                new Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                ),
               ],
             ),
           ),
             new Card(
             child: new Column(
-              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                new Row(
+                  children: <Widget>[
+                    new Container(
+                      width: 60.0,
+                      height: 60.0,
+                      margin: const EdgeInsets.all(10.0),
+                      decoration: new BoxDecoration(
+                          border: new Border.all(color: Colors.black12),
+                          shape: BoxShape.circle,
+                          image: new DecorationImage(image: AssetImage('assets/sirma.jpg'))
+                      ),
+                    ),
+                    new Text("Sırma Özsoydan",style: new TextStyle(fontWeight: FontWeight.bold)),
+                    new Expanded(
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          new Icon(Icons.more_vert,color: Colors.grey,)
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
                 new Image.asset(
                   'assets/resim1.jpg',
                   width: 400.0,
-                  height: 250.0,
+                  height: 300.0,
                   fit: BoxFit.fill,
                 ),
                 new ListTile(
-                  trailing: new Icon(Icons.message),
                   title: new Text(
                     "Konak 4 Yol Ağzı Kaza",
                     style: new TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: new Text("Kazalar"),
                 ),
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    new Icon(Icons.favorite,color: Colors.red),
+                    new Icon(Icons.chat_bubble_outline),
+                    new Icon(Icons.turned_in_not),
+                  ],
+                ),
+                new Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                ),
               ],
             ),
           ),
             new Card(
               child: new Column(
-                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  new Row(
+                    children: <Widget>[
+                      new Container(
+                        width: 60.0,
+                        height: 60.0,
+                        margin: const EdgeInsets.all(10.0),
+                        decoration: new BoxDecoration(
+                            border: new Border.all(color: Colors.black12),
+                            shape: BoxShape.circle,
+                            image: new DecorationImage(image: AssetImage('assets/hande.jpg'))
+                        ),
+                      ),
+                      new Text("Hande Orçan",style: new TextStyle(fontWeight: FontWeight.bold)),
+                      new Expanded(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            new Icon(Icons.more_vert,color: Colors.grey,)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                   new Image.asset(
                     'assets/resim2.jpg',
                     width: 400.0,
-                    height: 250.0,
+                    height: 300.0,
                     fit: BoxFit.fill,
                   ),
                   new ListTile(
-                    trailing: new Icon(Icons.message),
                     title: new Text(
                       "Alsancak Hamamcı Ayşeye Bırakıyom",
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: new Text("Kayıp Eşyalar"),
                   ),
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      new Icon(Icons.favorite,color: Colors.red),
+                      new Icon(Icons.chat_bubble_outline),
+                      new Icon(Icons.turned_in_not),
+                    ],
+                  ),
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                  ),
                 ],
               ),
             ),
@@ -194,20 +291,53 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  new Row(
+                    children: <Widget>[
+                      new Container(
+                        width: 60.0,
+                        height: 60.0,
+                        margin: const EdgeInsets.all(10.0),
+                        decoration: new BoxDecoration(
+                            border: new Border.all(color: Colors.black12),
+                            shape: BoxShape.circle,
+                            image: new DecorationImage(image: AssetImage('assets/silan.jpg'))
+                        ),
+                      ),
+                      new Text("Şilan Muhsinoğlu",style: new TextStyle(fontWeight: FontWeight.bold)),
+                      new Expanded(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            new Icon(Icons.more_vert,color: Colors.grey,)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                   new Image.asset(
                     'assets/resim3.jpg',
                     width: 400.0,
-                    height: 250.0,
+                    height: 300.0,
                     fit: BoxFit.fill,
                   ),
                   new ListTile(
-                    trailing: new Icon(Icons.message),
                     title: new Text(
                       "Bostanlı Sahil Pert",
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: new Text("Yol Bilgisi"),
                   ),
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      new Icon(Icons.favorite,color: Colors.red),
+                      new Icon(Icons.chat_bubble_outline),
+                      new Icon(Icons.turned_in_not),
+                    ],
+                  ),
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                  ),
                 ],
               ),
             ),
@@ -215,20 +345,53 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  new Row(
+                    children: <Widget>[
+                      new Container(
+                        width: 60.0,
+                        height: 60.0,
+                        margin: const EdgeInsets.all(10.0),
+                        decoration: new BoxDecoration(
+                            border: new Border.all(color: Colors.black12),
+                            shape: BoxShape.circle,
+                            image: new DecorationImage(image: AssetImage('assets/ege.jpg'))
+                        ),
+                      ),
+                      new Text("Ege Şenkul",style: new TextStyle(fontWeight: FontWeight.bold)),
+                      new Expanded(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            new Icon(Icons.more_vert,color: Colors.grey,)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                   new Image.asset(
                     'assets/resim5.jpg',
                     width: 400.0,
-                    height: 250.0,
+                    height: 300.0,
                     fit: BoxFit.fill,
                   ),
                   new ListTile(
-                    trailing: new Icon(Icons.message),
                     title: new Text(
                       "Ege Şenkul Evi Önü Kaza",
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: new Text("Kazalar"),
                   ),
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      new Icon(Icons.favorite,color: Colors.red),
+                      new Icon(Icons.chat_bubble_outline),
+                      new Icon(Icons.turned_in_not),
+                    ],
+                  ),
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                  ),
                 ],
               ),
             ),
@@ -236,24 +399,57 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  new Row(
+                    children: <Widget>[
+                      new Container(
+                        width: 60.0,
+                        height: 60.0,
+                        margin: const EdgeInsets.all(10.0),
+                        decoration: new BoxDecoration(
+                            border: new Border.all(color: Colors.black12),
+                            shape: BoxShape.circle,
+                            image: new DecorationImage(image: AssetImage('assets/onat.jpg'))
+                        ),
+                      ),
+                      new Text("Onat Göksel",style: new TextStyle(fontWeight: FontWeight.bold)),
+                      new Expanded(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            new Icon(Icons.more_vert,color: Colors.grey,)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                   new Image.asset(
                     'assets/resim6.jpg',
                     width: 400.0,
-                    height: 250.0,
+                    height: 300.0,
                     fit: BoxFit.fill,
                   ),
                   new ListTile(
-                    trailing: new Icon(Icons.message),
                     title: new Text(
                       "Yeşilköy Giriş Radar",
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: new Text("Radarlar ve Çevirmeler"),
                   ),
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      new Icon(Icons.favorite,color: Colors.red),
+                      new Icon(Icons.chat_bubble_outline),
+                      new Icon(Icons.turned_in_not),
+                    ],
+                  ),
+                  new Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                  ),
                 ],
               ),
             ),
-        ],
+          ],
       ),
     );
   }
