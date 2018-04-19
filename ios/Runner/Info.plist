@@ -51,5 +51,16 @@
 	<string>This app does require access to the microphone.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires access to the camera.</string>
+	<key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    			<string>com.googleusercontent.apps.257895618355-o4sduqrev0ed8q52sf0fs49vah9upvn2</string>
+    		</array>
+    	</dict>
+    </array>
 </dict>
 </plist>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "257895618355",
+    "firebase_url": "https://izmirde-cevirme.firebaseio.com",
+    "project_id": "izmirde-cevirme",
+    "storage_bucket": "izmirde-cevirme.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257895618355:android:88d77f01c62354ca",
+        "android_client_info": {
+          "package_name": "com.egesenkul.izmircevirmeradar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257895618355-cn32op3sdhgp1jufspumqd7aiv04gutc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.egesenkul.izmircevirmeradar",
+            "certificate_hash": "85c8199f0ed57286161a34072db3cf24ec1d5a26"
+          }
+        },
+        {
+          "client_id": "257895618355-qfk7acebucktfpdb3u9dqmao1iisj9ra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy_zmO8w2gCYCqTteWZgLjRmy_3cktM6Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257895618355-qfk7acebucktfpdb3u9dqmao1iisj9ra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

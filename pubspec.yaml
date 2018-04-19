@@ -10,6 +10,8 @@ dependencies:
   cupertino_icons: ^0.1.0
   flutter_launcher_icons: "^0.2.0"
   image_picker:
+  firebase_auth:
+  google_sign_in:
 
 dev_dependencies:
   flutter_test:

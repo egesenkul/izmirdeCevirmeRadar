@@ -1,14 +1,18 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:izmircevirme/fourthpage.dart';
 import 'package:izmircevirme/secondpage.dart';
 import 'package:izmircevirme/thirdpage.dart';
-import 'package:izmircevirme/anaEkran.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 void main() =>
     runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -42,7 +46,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPage> {
+  final FirebaseAuth authCevirme = FirebaseAuth.instance;
+  final GoogleSignIn googleSignIn = new GoogleSignIn();
 
+  Future<FirebaseUser> signIn() async{
+    GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+    GoogleSignInAuthentication gSA = await googleSignInAccount.authentication;
+
+    FirebaseUser user = await authCevirme.signInWithGoogle(
+        idToken: gSA.idToken, accessToken: gSA.accessToken);
+
+    return user;
+  }
+  void signOuy(){
+    googleSignIn.signOut();
+  }
 
   @override
   void initState() {
@@ -103,7 +121,7 @@ class LoginPageState extends State<LoginPage> {
                             color: Colors.green,
                             textColor: Colors.white,
                             child: new Text("GİRİŞ"),
-                            onPressed: _girisSayfasi,
+                            onPressed: ()=> signIn().then((FirebaseUser user)=>print(user)),
                             splashColor: Colors.redAccent,
                           ),
                           new MaterialButton(
