@@ -36,6 +36,12 @@ flutter:
       - assets/resim4.jpg
       - assets/resim5.jpg
       - assets/resim6.jpg
+      - assets/hesap.jpg
+      - assets/ege.jpg
+      - assets/hande.jpg
+      - assets/onat.jpg
+      - assets/silan.jpg
+      - assets/sirma.jpg
 
   # To add assets to your application, add an assets section, like this:
 
