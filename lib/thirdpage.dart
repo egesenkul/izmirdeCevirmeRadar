@@ -5,19 +5,19 @@ import 'package:izmircevirme/main.dart';
 import 'package:izmircevirme/newNewsPage.dart';
 import 'package:izmircevirme/settingsPage.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class ThirdDartPAGE extends StatefulWidget {
-
+  final FirebaseUser value;
   static const String routeName = "/ThirdDartPAGE";
-
+  ThirdDartPAGE ({Key key,this.value}) : super(key:key);
   @override
   _ThirdDartPAGEState createState() => new _ThirdDartPAGEState();
 }
 
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
-  void GetUserInformations(){
 
-  }
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -28,16 +28,16 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
         child: new ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-              accountName: new Text("Ege Şenkul", style: new TextStyle(
+              accountName: new Text("${widget.value.displayName}", style: new TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.white),),
-              accountEmail: new Text("egesenkul35@hotmail.com",
+              accountEmail: new Text("${widget.value.email}",
                 style: new TextStyle(
                     fontWeight: FontWeight.bold, color: Colors.white),),
               currentAccountPicture: new GestureDetector(
                 onTap: null,
                 child: new CircleAvatar(
                   backgroundImage: new NetworkImage(
-                      "https://scontent-otp1-1.xx.fbcdn.net/v/t1.0-9/20729397_10155281919170617_5321691683692301674_n.jpg?_nc_cat=0&oh=c512bdc66bd2f6bf0c767d88b2573175&oe=5B2F10F0"),
+                      "${widget.value.photoUrl}"),
                 ),
               ),
               decoration: new BoxDecoration(

@@ -55,9 +55,12 @@ class LoginPageState extends State<LoginPage> {
 
     FirebaseUser user = await authCevirme.signInWithGoogle(
         idToken: gSA.idToken, accessToken: gSA.accessToken);
-    if(user!=null){
-      _girisSayfasi;
-    }
+    var _user=user;
+    var route = new MaterialPageRoute(
+      builder: (BuildContext context) =>
+      new ThirdDartPAGE(value: _user),
+    );
+    Navigator.of(context).push(route);
     return user;
   }
   void signOut(){
@@ -65,7 +68,7 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void giris(){
-    final user = signIn().then((FirebaseUser user)=>print(user));
+    final user = signIn();
         if(user!=null){
         _girisSayfasi;
     }
@@ -150,53 +153,6 @@ class LoginPageState extends State<LoginPage> {
                // image: new AssetImage("assets/izmirde_cevirme_logo.png"),
                 //fit: BoxFit.cover,
               //),
-              new Form(child: new Theme(
-                data: new ThemeData(
-                  brightness: Brightness.dark,
-                  primarySwatch: Colors.teal,
-                  inputDecorationTheme: new InputDecorationTheme(
-                    labelStyle: new TextStyle(
-                        color: Colors.white70,
-                        fontSize: 20.0
-                    ),
-                  ),
-                ),
-                child: new Container(
-                  padding: const EdgeInsets.all(30.0),
-                  child: new Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      new Padding(
-                      padding:const EdgeInsets.only(top:20.0),
-                  ),
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-
-                          new MaterialButton(
-                            height: 40.0,
-                            minWidth: 80.0,
-                            color: Colors.deepOrange,
-                            textColor: Colors.white,
-                            child: new Text("ANA SAYFA HACK"),
-                            onPressed: _girisSayfasi,
-                            splashColor: Colors.redAccent,
-                          ),
-                        ],
-                      ),
-                      new Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          new Padding(
-                            padding: const EdgeInsets.only(top: 30.0),),
-
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              )
 
         ],
       ),
