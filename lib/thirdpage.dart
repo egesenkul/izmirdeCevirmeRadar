@@ -462,11 +462,17 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     Navigator.of(context).pop();
   }
 
+  void _cikisYap(){
+    _onPress();
+    Navigator.push(context, new MaterialPageRoute(
+        builder: (context) => new MyApp()));
+  }
+
   void _cikisOnay() {
     AlertDialog dialog = new AlertDialog(
       content: new Text("Çıkmak istediğinize emin misiniz?"),
       actions: <Widget>[
-        new FlatButton(onPressed: null, child: new Text("Evet")),
+        new FlatButton(onPressed: _cikisYap, child: new Text("Evet")),
         new FlatButton(onPressed: _onPress, child: new Text("Hayır")),
       ],
 
