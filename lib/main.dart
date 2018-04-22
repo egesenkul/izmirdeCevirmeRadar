@@ -74,6 +74,17 @@ class LoginPageState extends State<LoginPage> {
     }
   }
 
+  void _alertDigerSecenekler(){
+    AlertDialog dialog = new AlertDialog(
+      content: new Text("Şu anda diğer seçeneklerimiz geliştirilme aşamasındadır."),
+      actions: <Widget>[
+        new FlatButton(onPressed: _geriGel, child: new Text("Tamam")),
+      ],
+
+    );
+    showDialog(context: context, child: dialog);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -131,12 +142,14 @@ class LoginPageState extends State<LoginPage> {
               ),
             ),
               new Padding(
-                padding: const EdgeInsets.only(left:30.0,top:20.0,bottom:15.0),
-                child: new RichText(
-                  text: new TextSpan(
-                    text: "Diğer Seçenekler",
-                    style:  new TextStyle(fontWeight: FontWeight.w100,fontFamily:'Ubuntu',fontSize:15.0,color: Colors.white70),
-                  ),
+                padding: const EdgeInsets.only(top:30.0,left:30.0,right: 30.0),
+                child: new MaterialButton(
+                  height: 40.0,
+                  minWidth: 140.0,
+                  color: c,
+                  textColor: Colors.white,
+                  child: new Text("Diğer Seçenekler"),
+                  onPressed: _alertDigerSecenekler,
                 ),
               ),
               new Padding(
@@ -166,6 +179,10 @@ class LoginPageState extends State<LoginPage> {
 
   void _girisSayfasi() {
     Navigator.of(context).pushNamed(ThirdDartPAGE.routeName);
+  }
+
+  void _geriGel(){
+    Navigator.of(context).pop();
   }
 
   void _kayitolSayfasi() {
