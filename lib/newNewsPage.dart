@@ -9,6 +9,28 @@ class NewNewsPage extends StatefulWidget {
 }
 
 class _NewNewsPageState extends State<NewNewsPage> {
+  String _value = null;
+  List<String> _values = new List<String>();
+
+  @override
+  void initState() {
+    _values.addAll([
+      "Kazalar",
+      "Kayıp Eşyalar",
+      "Radarlar ve Çevirmeler",
+      "Yol Bilgisi",
+      "Çekiciler",
+      "Duyurular"
+    ]);
+    _value = _values.elementAt(0);
+  }
+
+  void _onChangged(String value) {
+    setState(() {
+      _value = value;
+    });
+  }
+
   File _image;
 
   Future getImage() async {
@@ -21,19 +43,73 @@ class _NewNewsPageState extends State<NewNewsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Haber Oluştur'),
+    return new MaterialApp(
+      theme: new ThemeData(
+        primaryColor: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      body: new Center(
-        child: _image == null
-            ? new Text('No image selected.')
-            : new Image.file(_image),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: getImage,
-        tooltip: 'Pick Image',
-        child: new Icon(Icons.add_a_photo),
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Haber Oluştur'),
+        ),
+        body: new ListView(
+          padding: new EdgeInsets.all(32.0),
+          children: <Widget>[
+            new Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    new Text(
+                      "Konu :",
+                      style: new TextStyle(fontSize: 20.0),
+                    ),
+                    new DropdownButton(
+                      value: _value,
+                      items: _values.map((String value) {
+                        return new DropdownMenuItem(
+                            value: value,
+                            child: new Row(
+                              children: <Widget>[new Text('${value}')],
+                            ));
+                      }).toList(),
+                      onChanged: (String value) {
+                        _onChangged(value);
+                      },
+                    ),
+                  ],
+                ),
+                new TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: 'Açıklama Girin',
+                  ),
+                ),
+                new Padding(padding: EdgeInsets.only(top: 20.0)),
+                new Center(
+                  child: _image == null
+                      ? new Text('No image selected.')
+                      : new Image.file(_image),
+                ),
+                new Padding(padding: EdgeInsets.only(top: 20.0)),
+                new MaterialButton(
+                    onPressed: getImage,
+                    height: 40.0,
+                    minWidth: 140.0,
+                    color: Colors.green,
+                    textColor: Colors.white,
+                    child: new Text("Resim Seç"),
+                    splashColor: Colors.redAccent,
+                )
+              ],
+            ),
+          ],
+        ),
+        floatingActionButton: new FloatingActionButton(
+          onPressed: null,
+          tooltip: 'Haber Oluştur',
+          child: new Icon(Icons.send),
+        ),
       ),
     );
   }
