@@ -44,6 +44,7 @@ class _NewNewsPageState extends State<NewNewsPage> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: new ThemeData(
         primaryColor: Colors.blue,
         primarySwatch: Colors.green,
@@ -85,13 +86,13 @@ class _NewNewsPageState extends State<NewNewsPage> {
                     labelText: 'Açıklama Girin',
                   ),
                 ),
-                new Padding(padding: EdgeInsets.only(top: 20.0)),
+                new Padding(padding: const EdgeInsets.only(top: 20.0)),
                 new Center(
                   child: _image == null
                       ? new Text('No image selected.')
                       : new Image.file(_image),
                 ),
-                new Padding(padding: EdgeInsets.only(top: 20.0)),
+                new Padding(padding: const EdgeInsets.only(top: 20.0)),
                 new MaterialButton(
                     onPressed: getImage,
                     height: 40.0,

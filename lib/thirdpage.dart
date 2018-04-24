@@ -151,9 +151,6 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                     new Expanded(
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          new Icon(Icons.more_vert,color: Colors.grey,)
-                        ],
                       ),
                     ),
                   ],
@@ -170,16 +167,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                     style: new TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: new Text("Radarlar ve Çevirmeler "),
-                ),
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    new Icon(Icons.favorite,color: Colors.red),
-                    new Icon(Icons.chat_bubble_outline),
-                    new Icon(Icons.turned_in_not),
-                  ],
-                ),
-                new Padding(
+                ), new Padding(
                   padding: const EdgeInsets.only(top: 15.0),
                 ),
               ],
@@ -204,9 +192,6 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                     new Expanded(
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          new Icon(Icons.more_vert,color: Colors.grey,)
-                        ],
                       ),
                     ),
                   ],
@@ -223,14 +208,6 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                     style: new TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: new Text("Kazalar"),
-                ),
-                new Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    new Icon(Icons.favorite,color: Colors.red),
-                    new Icon(Icons.chat_bubble_outline),
-                    new Icon(Icons.turned_in_not),
-                  ],
                 ),
                 new Padding(
                   padding: const EdgeInsets.only(top: 15.0),
@@ -256,11 +233,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       new Text("Hande Orçan",style: new TextStyle(fontWeight: FontWeight.bold)),
                       new Expanded(
                         child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            new Icon(Icons.more_vert,color: Colors.grey,)
-                          ],
-                        ),
+                          mainAxisAlignment: MainAxisAlignment.end,),
                       ),
                     ],
                   ),
@@ -276,16 +249,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: new Text("Kayıp Eşyalar"),
-                  ),
-                  new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      new Icon(Icons.favorite,color: Colors.red),
-                      new Icon(Icons.chat_bubble_outline),
-                      new Icon(Icons.turned_in_not),
-                    ],
-                  ),
-                  new Padding(
+                  ),   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                   ),
                 ],
@@ -311,10 +275,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       new Expanded(
                         child: new Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            new Icon(Icons.more_vert,color: Colors.grey,)
-                          ],
-                        ),
+                          ),
                       ),
                     ],
                   ),
@@ -333,12 +294,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                   ),
                   new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      new Icon(Icons.favorite,color: Colors.red),
-                      new Icon(Icons.chat_bubble_outline),
-                      new Icon(Icons.turned_in_not),
-                    ],
-                  ),
+                   ),
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                   ),
@@ -364,11 +320,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       new Text("Ege Şenkul",style: new TextStyle(fontWeight: FontWeight.bold)),
                       new Expanded(
                         child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            new Icon(Icons.more_vert,color: Colors.grey,)
-                          ],
-                        ),
+                          mainAxisAlignment: MainAxisAlignment.end, ),
                       ),
                     ],
                   ),
@@ -387,12 +339,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                   ),
                   new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      new Icon(Icons.favorite,color: Colors.red),
-                      new Icon(Icons.chat_bubble_outline),
-                      new Icon(Icons.turned_in_not),
-                    ],
-                  ),
+                    ),
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                   ),
@@ -419,10 +366,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       new Expanded(
                         child: new Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            new Icon(Icons.more_vert,color: Colors.grey,)
-                          ],
-                        ),
+                         ),
                       ),
                     ],
                   ),
@@ -441,12 +385,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                   ),
                   new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      new Icon(Icons.favorite,color: Colors.red),
-                      new Icon(Icons.chat_bubble_outline),
-                      new Icon(Icons.turned_in_not),
-                    ],
-                  ),
+                    ),
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                   ),
