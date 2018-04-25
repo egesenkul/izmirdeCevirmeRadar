@@ -89,7 +89,7 @@ class _NewNewsPageState extends State<NewNewsPage> {
                 new Padding(padding: const EdgeInsets.only(top: 20.0)),
                 new Center(
                   child: _image == null
-                      ? new Text('No image selected.')
+                      ? new Text('Resim seçilmedi')
                       : new Image.file(_image),
                 ),
                 new Padding(padding: const EdgeInsets.only(top: 20.0)),
