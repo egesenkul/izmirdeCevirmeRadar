@@ -60,9 +60,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                 title: new Text("Benim Gönderilerim"),
                 trailing: new Icon(Icons.person),
                 onTap: () {
-                  _onPress();
-                  Navigator.push(context, new MaterialPageRoute(
-                      builder: (context) => new SettingsPage()));
+
                 }
             ),
             new Divider(),
