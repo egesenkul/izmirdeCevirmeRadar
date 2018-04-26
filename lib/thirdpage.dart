@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:izmircevirme/main.dart';
 import 'package:izmircevirme/newNewsPage.dart';
@@ -18,8 +19,26 @@ class ThirdDartPAGE extends StatefulWidget {
 }
 
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
+  List data;
 
+  Future<String> getData() async {
+    var response = await http.get(
+        Uri.encodeFull("http://izmirdecevirme.azurewebsites.net/api/haber"),
+        headers: {
+          "Accept": "application/json"
+        }
+    );
+
+    this.setState(() {
+      data = JSON.decode(response.body);
+    });
+
+    return "Success!";
+  }
   @override
+  void initState() {
+    this.getData();
+  }
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
@@ -129,94 +148,10 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
           ],
         ),
       ),
-      body: new ListView(
-          children: <Widget>[
-            new Padding(
-              padding: const EdgeInsets.only(top: 4.0),
-           ),
-            new Card(
-            child: new Column(
-              children: <Widget>[
-                new Row(
-                  children: <Widget>[
-                    new Container(
-                      width: 60.0,
-                      height: 60.0,
-                      margin: const EdgeInsets.all(10.0),
-                      decoration: new BoxDecoration(
-                        border: new Border.all(color: Colors.black12),
-                          shape: BoxShape.circle,
-                          image: new DecorationImage(image: new AssetImage('assets/hesap.jpg'))
-                      ),
-                    ),
-                    new Text("Rıza Özonuk",style: new TextStyle(fontWeight: FontWeight.bold)),
-                    new Expanded(
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                      ),
-                    ),
-                  ],
-                ),
-                new Image.asset(
-                  'assets/resim4.jpg',
-                  width: 400.0,
-                  height: 300.0,
-                  fit: BoxFit.fill,
-                ),
-                new ListTile(
-                  title: new Text(
-                    "Amcalar Aydın Yolunda Bekliyor",
-                    style: new TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: new Text("Radarlar ve Çevirmeler "),
-                ), new Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
-                ),
-              ],
-            ),
-          ),
-            new Card(
-            child: new Column(
-              children: <Widget>[
-                new Row(
-                  children: <Widget>[
-                    new Container(
-                      width: 60.0,
-                      height: 60.0,
-                      margin: const EdgeInsets.all(10.0),
-                      decoration: new BoxDecoration(
-                          border: new Border.all(color: Colors.black12),
-                          shape: BoxShape.circle,
-                          image: new DecorationImage(image: new AssetImage('assets/sirma.jpg'))
-                      ),
-                    ),
-                    new Text("Sırma Özsoydan",style: new TextStyle(fontWeight: FontWeight.bold)),
-                    new Expanded(
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                      ),
-                    ),
-                  ],
-                ),
-                new Image.asset(
-                  'assets/resim1.jpg',
-                  width: 400.0,
-                  height: 300.0,
-                  fit: BoxFit.fill,
-                ),
-                new ListTile(
-                  title: new Text(
-                    "Konak 4 Yol Ağzı Kaza",
-                    style: new TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: new Text("Kazalar"),
-                ),
-                new Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
-                ),
-              ],
-            ),
-          ),
+      body: new ListView.builder(
+        itemCount: data == null ? 0 : data.length,
+        itemBuilder: (BuildContext context, int index) {
+          return
             new Card(
               child: new Column(
                 children: <Widget>[
@@ -229,172 +164,29 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                         decoration: new BoxDecoration(
                             border: new Border.all(color: Colors.black12),
                             shape: BoxShape.circle,
-                            image: new DecorationImage(image: new AssetImage('assets/hande.jpg'))
+                            image: new DecorationImage(image: new NetworkImage(data[index]["gondericiResim"]))
                         ),
                       ),
-                      new Text("Hande Orçan",style: new TextStyle(fontWeight: FontWeight.bold)),
-                      new Expanded(
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.end,),
-                      ),
+                      new Text(data[index]["gondericiAdi"],style: new TextStyle(fontWeight: FontWeight.bold)),
+
                     ],
                   ),
-                  new Image.asset(
-                    'assets/resim2.jpg',
-                    width: 400.0,
-                    height: 300.0,
-                    fit: BoxFit.fill,
+                  new Image.network(
+                    data[index]["resimUrl"],
                   ),
                   new ListTile(
-                    title: new Text(
-                      "Alsancak Hamamcı Ayşeye Bırakıyom",
+                    title: new Text(data[index]["aciklama"],
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: new Text("Kayıp Eşyalar"),
-                  ),   new Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
+                    subtitle: new Text(data[index]["konu"]),
                   ),
-                ],
-              ),
-            ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new Row(
-                    children: <Widget>[
-                      new Container(
-                        width: 60.0,
-                        height: 60.0,
-                        margin: const EdgeInsets.all(10.0),
-                        decoration: new BoxDecoration(
-                            border: new Border.all(color: Colors.black12),
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(image: new AssetImage('assets/silan.jpg'))
-                        ),
-                      ),
-                      new Text("Şilan Muhsinoğlu",style: new TextStyle(fontWeight: FontWeight.bold)),
-                      new Expanded(
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          ),
-                      ),
-                    ],
-                  ),
-                  new Image.asset(
-                    'assets/resim3.jpg',
-                    width: 400.0,
-                    height: 300.0,
-                    fit: BoxFit.fill,
-                  ),
-                  new ListTile(
-                    title: new Text(
-                      "Bostanlı Sahil Pert",
-                      style: new TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: new Text("Yol Bilgisi"),
-                  ),
-                  new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   ),
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                   ),
                 ],
               ),
-            ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new Row(
-                    children: <Widget>[
-                      new Container(
-                        width: 60.0,
-                        height: 60.0,
-                        margin: const EdgeInsets.all(10.0),
-                        decoration: new BoxDecoration(
-                            border: new Border.all(color: Colors.black12),
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(image: new AssetImage('assets/ege.jpg'))
-                        ),
-                      ),
-                      new Text("Ege Şenkul",style: new TextStyle(fontWeight: FontWeight.bold)),
-                      new Expanded(
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.end, ),
-                      ),
-                    ],
-                  ),
-                  new Image.asset(
-                    'assets/resim5.jpg',
-                    width: 400.0,
-                    height: 300.0,
-                    fit: BoxFit.fill,
-                  ),
-                  new ListTile(
-                    title: new Text(
-                      "Ege Şenkul Evi Önü Kaza",
-                      style: new TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: new Text("Kazalar"),
-                  ),
-                  new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    ),
-                  new Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
-                  ),
-                ],
-              ),
-            ),
-            new Card(
-              child: new Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  new Row(
-                    children: <Widget>[
-                      new Container(
-                        width: 60.0,
-                        height: 60.0,
-                        margin: const EdgeInsets.all(10.0),
-                        decoration: new BoxDecoration(
-                            border: new Border.all(color: Colors.black12),
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(image: new AssetImage('assets/onat.jpg'))
-                        ),
-                      ),
-                      new Text("Onat Göksel",style: new TextStyle(fontWeight: FontWeight.bold)),
-                      new Expanded(
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                         ),
-                      ),
-                    ],
-                  ),
-                  new Image.asset(
-                    'assets/resim6.jpg',
-                    width: 400.0,
-                    height: 300.0,
-                    fit: BoxFit.fill,
-                  ),
-                  new ListTile(
-                    title: new Text(
-                      "Yeşilköy Giriş Radar",
-                      style: new TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: new Text("Radarlar ve Çevirmeler"),
-                  ),
-                  new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    ),
-                  new Padding(
-                    padding: const EdgeInsets.only(top: 15.0),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            );
+        },
       ),
     );
   }
