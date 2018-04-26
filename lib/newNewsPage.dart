@@ -51,6 +51,8 @@ class _NewNewsPageState extends State<NewNewsPage> {
       ),
       home: new Scaffold(
         appBar: new AppBar(
+          leading: new IconButton(icon: new Icon(Icons.arrow_back_ios),
+              onPressed: _geriGel),
           title: new Text('Haber Oluştur'),
         ),
         body: new ListView(
@@ -94,13 +96,13 @@ class _NewNewsPageState extends State<NewNewsPage> {
                 ),
                 new Padding(padding: const EdgeInsets.only(top: 20.0)),
                 new MaterialButton(
-                    onPressed: getImage,
-                    height: 40.0,
-                    minWidth: 140.0,
-                    color: Colors.green,
-                    textColor: Colors.white,
-                    child: new Text("Resim Seç"),
-                    splashColor: Colors.redAccent,
+                  onPressed: getImage,
+                  height: 40.0,
+                  minWidth: 140.0,
+                  color: Colors.green,
+                  textColor: Colors.white,
+                  child: new Text("Resim Seç"),
+                  splashColor: Colors.redAccent,
                 )
               ],
             ),
@@ -113,8 +115,10 @@ class _NewNewsPageState extends State<NewNewsPage> {
         ),
       ),
     );
-
   }
 
+  void _geriGel(){
+    Navigator.of(context).pop();
+  }
 
 }
