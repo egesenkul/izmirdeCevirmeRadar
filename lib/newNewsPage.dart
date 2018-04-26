@@ -109,7 +109,7 @@ class _NewNewsPageState extends State<NewNewsPage> {
           ],
         ),
         floatingActionButton: new FloatingActionButton(
-          onPressed: null,
+          onPressed: _haberOnay,
           tooltip: 'Haber Oluştur',
           child: new Icon(Icons.send),
         ),
@@ -120,5 +120,15 @@ class _NewNewsPageState extends State<NewNewsPage> {
   void _geriGel(){
     Navigator.of(context).pop();
   }
+  void _haberOnay() {
+    AlertDialog dialog = new AlertDialog(
+      content: new Text("Haberi yayınlamak istediğinize emin misiniz?"),
+      actions: <Widget>[
+        new FlatButton(onPressed: null, child: new Text("Evet")),
+        new FlatButton(onPressed: _geriGel, child: new Text("Hayır")),
+      ],
 
+    );
+    showDialog(context: context, child: dialog);
+  }
 }

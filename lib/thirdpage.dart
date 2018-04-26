@@ -424,20 +424,6 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   void _geriGel(){
     Navigator.of(context).pop();
   }
- // void _alerthaberekleme(){
-   // AlertDialog dialog = new AlertDialog(
-     // content: new Text("Henüz Kaydetmediniz Kapamak İstermisiniz?"),
-      //actions: <Widget>[
-        //new FlatButton(onPressed: _geriGel, child: new Text("Evet")),
-        //new FlatButton(onPressed: Navigator.Pop, child: new Text("Hayır")),
-
-     // ],
-
-    //);
-    //showDialog(context: , child: dialog);
-  //}
-
-
 }
 
 
