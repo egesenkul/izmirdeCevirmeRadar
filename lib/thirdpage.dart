@@ -254,12 +254,12 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   }
 
   void _kosulGuncelleOnaylanmamisGonderiler(){
+    _geriGel;
     setState((){
       kosul="onay";
       dogruIfade="false";
       onayGerekli=false;
     });
-    _geriGel;
   }
 
   void _onPress() {
