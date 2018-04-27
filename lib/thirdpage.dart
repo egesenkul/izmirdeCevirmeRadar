@@ -151,6 +151,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
+          if(data[index]["onay"].toString()=="true"){
           return
             new Card(
               child: new Column(
@@ -185,7 +186,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                   ),
                 ],
               ),
-            );
+            );}
         },
       ),
     );
