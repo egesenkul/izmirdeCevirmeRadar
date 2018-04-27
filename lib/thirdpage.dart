@@ -98,14 +98,17 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             new ListTile(
               title: new Text("Kazalar"),
               trailing: new Icon(Icons.block),
+              onTap: _kosulGuncelleKazalar,
             ),
             new ListTile(
               title: new Text("Yol Bilgisi"),
               trailing: new Icon(Icons.info),
+              onTap: _kosulGuncelleYolBilgisi,
             ),
             new ListTile(
               title: new Text("Çekiciler"),
               trailing: new Icon(Icons.drive_eta),
+              onTap: _kosulGuncelleCekiciler,
             ),
             new ListTile(
               title: new Text("Kayıp Eşyalar"),
@@ -209,6 +212,33 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     setState((){
       kosul="konu";
       dogruIfade="Duyurular";
+      onayGerekli=true;
+    });
+    _geriGel;
+  }
+
+  void _kosulGuncelleKazalar(){
+    setState((){
+      kosul="konu";
+      dogruIfade="Kazalar";
+      onayGerekli=true;
+    });
+    _geriGel;
+  }
+
+  void _kosulGuncelleYolBilgisi(){
+    setState((){
+      kosul="konu";
+      dogruIfade="Yol Bilgisi";
+      onayGerekli=true;
+    });
+    _geriGel;
+  }
+
+  void _kosulGuncelleCekiciler(){
+    setState((){
+      kosul="konu";
+      dogruIfade="Çekiciler";
       onayGerekli=true;
     });
     _geriGel;
