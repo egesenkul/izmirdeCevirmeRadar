@@ -49,6 +49,15 @@ class SettingsPage extends StatelessWidget {
     );
 
 
+    final deneme =
+
+    new IconButton(icon: new Icon(Icons.arrow_back_ios),
+        onPressed: () {
+          Navigator.pop(context);
+        });
+
+
+
     final body = new Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(28.0),
@@ -59,12 +68,17 @@ class SettingsPage extends StatelessWidget {
         ]),
       ),
       child: new Column(
-        children: <Widget>[ege, merhaba, hakkinda,not,sorumluluk,odev]
+        children: <Widget>[deneme,merhaba, hakkinda,not,sorumluluk,odev]
       ),
     );
 
     return new Scaffold(
       body: body,
     );
+
+
+
+
   }
+
 }
