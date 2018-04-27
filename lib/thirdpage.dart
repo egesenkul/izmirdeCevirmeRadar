@@ -20,7 +20,9 @@ class ThirdDartPAGE extends StatefulWidget {
 
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   List data;
-
+  var kosul='';
+  var dogruIfade='';
+  var onayGerekli=true;
   Future<String> getData() async {
     var response = await http.get(
         Uri.encodeFull("http://izmirdecevirme.azurewebsites.net/api/haber"),
@@ -81,7 +83,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                 title: new Text("Benim Gönderilerim"),
                 trailing: new Icon(Icons.person),
                 onTap: () {
-
+                  _kosulGuncelleBenimGonderilerim;
                 }
             ),
             new Divider(),
@@ -108,16 +110,18 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             new ListTile(
               title: new Text("Kayıp Eşyalar"),
               trailing: new Icon(Icons.feedback),
+              onTap: _kosulGuncelleKayipEsyalar,
             ),
             new ListTile(
               title: new Text("Duyurular"),
               trailing: new Icon(Icons.error),
+              onTap: _kosulGuncelleDuyurular,
             ),
             new Divider(),
             new ListTile(
               title: new Text("Onaylanmamış Gönderiler"),
               trailing: new Icon(Icons.touch_app),
-              onTap: () => Navigator.of(context).pop(),
+              onTap: _kosulGuncelleOnaylanmamisGonderiler,
             ),
             new Divider(),
             new ListTile(
@@ -151,7 +155,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
-          if(data[index]["onay"].toString()=="true"){
+          if(data[index][kosul].toString()==dogruIfade && data[index]["onay"].toString()==onayGerekli.toString() ){
           return
             new Card(
               child: new Column(
@@ -190,6 +194,42 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
         },
       ),
     );
+  }
+  
+  void _kosulGuncelleBenimGonderilerim(){
+    setState((){
+      kosul="gondericiEmail";
+      dogruIfade="${widget.value.email}";
+      onayGerekli=false;
+    });
+    _geriGel;
+  }
+
+  void _kosulGuncelleDuyurular(){
+    setState((){
+      kosul="konu";
+      dogruIfade="Duyurular";
+      onayGerekli=true;
+    });
+    _geriGel;
+  }
+
+  void _kosulGuncelleKayipEsyalar(){
+    setState((){
+      kosul="konu";
+      dogruIfade="Kayıp Eşyalar";
+      onayGerekli=true;
+    });
+    _geriGel;
+  }
+
+  void _kosulGuncelleOnaylanmamisGonderiler(){
+    setState((){
+      kosul="onay";
+      dogruIfade="false";
+      onayGerekli=false;
+    });
+    _geriGel;
   }
 
   void _onPress() {
