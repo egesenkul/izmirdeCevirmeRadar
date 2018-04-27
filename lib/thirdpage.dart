@@ -20,6 +20,7 @@ class ThirdDartPAGE extends StatefulWidget {
 
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   List data;
+  var baslik='Haberler';
   var kosul='';
   var dogruIfade='';
   var onayGerekli=true;
@@ -44,7 +45,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Haberler"),
+        title: new Text("$baslik"),
       ),
       drawer: new Drawer(
         child: new ListView(
@@ -94,6 +95,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             new ListTile(
               title: new Text("Radarlar ve Çevirmeler"),
               trailing: new Icon(Icons.add_alert),
+              onTap: _kosulGuncelleRadarlar,
             ),
             new ListTile(
               title: new Text("Kazalar"),
@@ -158,7 +160,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
-          if(data[index][kosul].toString()==dogruIfade && data[index]["onay"].toString()==onayGerekli.toString() ){
+          if(data[index][kosul].toString()==dogruIfade.toString() && data[index]["onay"].toString()==onayGerekli.toString() ){
           return
             new Card(
               child: new Column(
@@ -201,6 +203,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   
   void _kosulGuncelleBenimGonderilerim(){
     setState((){
+      baslik='Benim Gönderilerim';
       kosul="gondericiEmail";
       dogruIfade="${widget.value.email}";
       onayGerekli=false;
@@ -210,6 +213,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
 
   void _kosulGuncelleDuyurular(){
     setState((){
+      baslik="Duyurular";
       kosul="konu";
       dogruIfade="Duyurular";
       onayGerekli=true;
@@ -217,8 +221,20 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     _geriGel;
   }
 
+  void _kosulGuncelleRadarlar(){
+    _geriGel;
+    initState;
+    setState((){
+      baslik="Radarlar ve Çevirmeler";
+      kosul="konu";
+      dogruIfade="Radarlar ve Çevirmeler";
+      onayGerekli=true;
+    });
+  }
+
   void _kosulGuncelleKazalar(){
     setState((){
+      baslik='Kazalar';
       kosul="konu";
       dogruIfade="Kazalar";
       onayGerekli=true;
@@ -228,6 +244,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
 
   void _kosulGuncelleYolBilgisi(){
     setState((){
+      baslik='Yol Bilgisi';
       kosul="konu";
       dogruIfade="Yol Bilgisi";
       onayGerekli=true;
@@ -237,6 +254,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
 
   void _kosulGuncelleCekiciler(){
     setState((){
+      baslik='Çekiciler';
       kosul="konu";
       dogruIfade="Çekiciler";
       onayGerekli=true;
@@ -246,6 +264,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
 
   void _kosulGuncelleKayipEsyalar(){
     setState((){
+      baslik='Kayıp Eşyalar';
       kosul="konu";
       dogruIfade="Kayıp Eşyalar";
       onayGerekli=true;
@@ -256,6 +275,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   void _kosulGuncelleOnaylanmamisGonderiler(){
     _geriGel;
     setState((){
+      baslik='Onay Bekleyen Gönderiler';
       kosul="onay";
       dogruIfade="false";
       onayGerekli=false;
