@@ -46,10 +46,19 @@ class SettingsPage extends StatelessWidget {
 
     final sayfa =
 
-    new IconButton(alignment:new Alignment(-40.0, 30.0), icon: new Icon(Icons.arrow_back_ios,color: Colors.white,),
-        onPressed: () {
-          Navigator.of(context).pop();
-        });
+    new Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: new Row(
+        children: <Widget>[
+          new IconButton(icon:
+          new Icon(Icons.arrow_back_ios,color: Colors.white,),
+              onPressed: () {
+                Navigator.of(context).pop();
+              }),
+        ],
+      ),
+    );
+
 
 
 
@@ -62,9 +71,13 @@ class SettingsPage extends StatelessWidget {
           Colors.lightBlueAccent,
         ]),
       ),
-      child: new Column(
-          children: <Widget>[sayfa,logo,merhaba, ilk_paragraf,ikinci_paragraf,ucuncu_paragraf]
+      child: new ListView(
+          children: <Widget>[
+      new Column(
+      children: <Widget>[sayfa,logo,merhaba, ilk_paragraf,ikinci_paragraf,ucuncu_paragraf]
       ),
+    ],
+      )
     );
 
     return new Scaffold(
