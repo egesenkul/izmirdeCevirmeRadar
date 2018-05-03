@@ -143,14 +143,6 @@ class LoginPageState extends State<LoginPage> {
             ),
               new Padding(
                 padding: const EdgeInsets.only(top:30.0,left:30.0,right: 30.0),
-                child: new MaterialButton(
-                  height: 40.0,
-                  minWidth: 140.0,
-                  color: c,
-                  textColor: Colors.white,
-                  child: new Text("Diğer Seçenekler"),
-                  onPressed: _alertDigerSecenekler,
-                ),
               ),
               new Padding(
                 padding: const EdgeInsets.only(left:30.0,top:80.0),

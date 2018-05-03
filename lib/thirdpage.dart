@@ -168,7 +168,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (BuildContext context, int index) {
-          if(data[index][kosul].toString()==dogruIfade.toString() && data[index]["onay"].toString()==onayGerekli.toString() ){
+          if(data[index][kosul].toString()==dogruIfade.toString()){
           return
             new Card(
               child: new Column(
