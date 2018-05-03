@@ -181,4 +181,5 @@ class LoginPageState extends State<LoginPage> {
   void _kayitolSayfasi() {
     Navigator.of(context).pushNamed(FourthDartPAGE.routeName);
   }
+
 }
