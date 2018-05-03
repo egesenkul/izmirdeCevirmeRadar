@@ -21,6 +21,23 @@ class SettingsPage extends StatelessWidget {
       ),
     );
 
+
+    final onat =
+
+    new Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: new Row(
+        children: <Widget>[
+          new IconButton(icon:
+          new Icon(Icons.add_box,color: Colors.white,),
+              onPressed: () {
+                null;
+              }),
+        ],
+      ),
+    );
+
+
     final riza= new TextField(
       style: new TextStyle(color: Colors.white),
       decoration: new InputDecoration(
@@ -30,23 +47,32 @@ class SettingsPage extends StatelessWidget {
       ),
     );
 
+
+
+    final onat2= new Text(
+      "TEXT  BOX DENEME",
+      style: new TextStyle(fontSize: 20.0),
+    );
+
+
+
     final body = new Container(
-    width: MediaQuery.of(context).size.width,
-    padding: const EdgeInsets.all(28.0),
-    decoration: new BoxDecoration(
-    gradient: new LinearGradient(colors: [
-    Colors.blue,
-    Colors.lightBlueAccent,
-    ]),
-    ),
-    child: new ListView(
-    children: <Widget>[
-    new Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[ege,riza]
-    ),
-    ],
-    )
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(28.0),
+        decoration: new BoxDecoration(
+          gradient: new LinearGradient(colors: [
+            Colors.blue,
+            Colors.lightBlueAccent,
+          ]),
+        ),
+        child: new ListView(
+          children: <Widget>[
+            new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[onat2,ege,riza,onat]
+            ),
+          ],
+        )
     );
 
     return new Scaffold(

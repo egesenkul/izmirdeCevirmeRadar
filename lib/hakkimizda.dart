@@ -5,16 +5,11 @@ class hakkimizdaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final logo = new Hero(
-      tag: 'logo',
-      child: new Padding(
+    final logo = new Padding(
         padding: const EdgeInsets.all(1.0),
-        child:  new CircleAvatar(
-          radius: 144.0,
-          backgroundColor: Colors.transparent,
-          backgroundImage: new AssetImage('assets/izmirde_cevirme_logo.png'),
+        child:  new Image(
+          image: new AssetImage('assets/izmirde_cevirme_logo.png'),
         ),
-      ),
     );
 
     final merhaba = new Padding(
