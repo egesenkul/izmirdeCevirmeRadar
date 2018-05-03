@@ -22,10 +22,9 @@ class ThirdDartPAGE extends StatefulWidget {
 
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   List data;
-  var baslik='Haberler';
-  var kosul='';
-  var dogruIfade='';
-  var onayGerekli=true;
+  List filtreli;
+  var dogruKonu="";
+  var baslik="Haberler";
   Future<String> getData() async {
     var response = await http.get(
         Uri.encodeFull("http://izmirdecevirme.azurewebsites.net/api/haber"),
@@ -36,6 +35,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
 
     this.setState(() {
       data = JSON.decode(response.body);
+      _listeFiltrele();
     });
 
     return "Success!";
@@ -45,6 +45,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     this.getData();
   }
   Widget build(BuildContext context) {
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("$baslik"),
@@ -97,6 +98,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             new ListTile(
               title: new Text("Tümü"),
               trailing: new Icon(Icons.assignment),
+              onTap: _tumu,
             ),
             new ListTile(
               title: new Text("Radarlar ve Çevirmeler"),
@@ -168,9 +170,8 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
         ),
       ),
       body: new ListView.builder(
-        itemCount: data == null ? 0 : data.length,
+        itemCount: filtreli == null ? 0 : filtreli.length,
         itemBuilder: (BuildContext context, int index) {
-          if(data[index][kosul].toString()==dogruIfade.toString()){
           return
             new Card(
               child: new Column(
@@ -184,28 +185,28 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                         decoration: new BoxDecoration(
                             border: new Border.all(color: Colors.black12),
                             shape: BoxShape.circle,
-                            image: new DecorationImage(image: new NetworkImage(data[index]["gondericiResim"]))
+                            image: new DecorationImage(image: new NetworkImage(filtreli[index]["gondericiResim"]))
                         ),
                       ),
-                      new Text(data[index]["gondericiAdi"],style: new TextStyle(fontWeight: FontWeight.bold)),
+                      new Text(filtreli[index]["gondericiAdi"],style: new TextStyle(fontWeight: FontWeight.bold)),
 
                     ],
                   ),
                   new Image.network(
-                    data[index]["resimUrl"],
+                    filtreli[index]["resimUrl"],
                   ),
                   new ListTile(
-                    title: new Text(data[index]["aciklama"],
+                    title: new Text(filtreli[index]["aciklama"],
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: new Text(data[index]["konu"]),
+                    subtitle: new Text(filtreli[index]["konu"]),
                   ),
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                   ),
                 ],
               ),
-            );}
+            );
         },
       ),
     );
@@ -214,81 +215,123 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   void _kosulGuncelleBenimGonderilerim(){
     setState((){
       baslik='Benim Gönderilerim';
-      kosul="gondericiEmail";
-      dogruIfade="${widget.value.email}";
-      onayGerekli=false;
+      _listeFiltrele();
+      _geriGel();
     });
-    _geriGel;
   }
 
   void _kosulGuncelleDuyurular(){
     setState((){
       baslik="Duyurular";
-      kosul="konu";
-      dogruIfade="Duyurular";
-      onayGerekli=true;
+      _listeFiltrele();
+      _geriGel();
     });
-    _geriGel;
   }
 
   void _kosulGuncelleRadarlar(){
-    _geriGel;
-    initState;
     setState((){
       baslik="Radarlar ve Çevirmeler";
-      kosul="konu";
-      dogruIfade="Radarlar ve Çevirmeler";
-      onayGerekli=true;
+      _listeFiltrele();
+      _geriGel();
     });
   }
 
   void _kosulGuncelleKazalar(){
     setState((){
       baslik='Kazalar';
-      kosul="konu";
-      dogruIfade="Kazalar";
-      onayGerekli=true;
+      _listeFiltrele();
+      _geriGel();
     });
-    _geriGel;
   }
 
   void _kosulGuncelleYolBilgisi(){
     setState((){
       baslik='Yol Bilgisi';
-      kosul="konu";
-      dogruIfade="Yol Bilgisi";
-      onayGerekli=true;
+      _listeFiltrele();
+      _geriGel();
     });
-    _geriGel;
   }
 
   void _kosulGuncelleCekiciler(){
     setState((){
       baslik='Çekiciler';
-      kosul="konu";
-      dogruIfade="Çekiciler";
-      onayGerekli=true;
+      _listeFiltrele();
+      _geriGel();
     });
-    _geriGel;
+  }
+
+  void _tumu(){
+    setState((){
+      baslik='Haberler';
+      _listeFiltrele();
+      _geriGel();
+    });
   }
 
   void _kosulGuncelleKayipEsyalar(){
     setState((){
       baslik='Kayıp Eşyalar';
-      kosul="konu";
-      dogruIfade="Kayıp Eşyalar";
-      onayGerekli=true;
+      _listeFiltrele();
+      _geriGel();
     });
-    _geriGel;
+  }
+
+  void _listeFiltrele(){
+    filtreli = new List();
+    for(int i=0;i<data.length;i++){
+      if(baslik.toString() == "Haberler"){
+        if(data[i]["onay"]==true){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Onaylanmamış Gönderiler"){
+        if(data[i]["onay"]==false){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Kayıp Eşyalar"){
+        if(data[i]["konu"]=="Kayip Esyalar" && data[i]["onay"]==true){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Benim Gönderilerim"){
+        if(data[i]["konu"]=="Kayip Esyalar"){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Kazalar"){
+        if(data[i]["konu"]=="Kazalar"){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Radarlar ve Çevirmeler"){
+        if(data[i]["konu"]=="Radarlar ve Çevirmeler"){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Yol Bilgisi"){
+        if(data[i]["konu"]=="Yol Bilgisi"){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Çekiciler"){
+        if(data[i]["konu"]=="Çekiciler"){
+          filtreli.add(data[i]);
+        }
+      }
+      else if(baslik.toString() == "Duyurular"){
+        if(data[i]["konu"]=="Duyurular"){
+          filtreli.add(data[i]);
+        }
+      }
+    }
   }
 
   void _kosulGuncelleOnaylanmamisGonderiler(){
-    _geriGel;
-    setState((){
-      baslik='Onay Bekleyen Gönderiler';
-      kosul="onay";
-      dogruIfade="false";
-      onayGerekli=false;
+    this.setState(() {
+      baslik="Onaylanmamış Gönderiler";
+      _listeFiltrele();
+      _geriGel();
     });
   }
 
