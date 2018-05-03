@@ -5,55 +5,50 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ege = new Hero(
-      tag: 'hero',
+    final logo = new Hero(
+      tag: 'logo',
       child: new Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(1.0),
         child:  new CircleAvatar(
-          radius: 72.0,
+          radius: 144.0,
           backgroundColor: Colors.transparent,
-          backgroundImage: new AssetImage('assets/ege.jpg'),
+          backgroundImage: new AssetImage('assets/izmirde_cevirme_logo.png'),
         ),
       ),
     );
 
     final merhaba = new Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(1.0),
       child: new Text(
         'İzmir Trafik Çevirme',
         style: new TextStyle(fontSize: 28.0, color: Colors.white),
       ),
     );
 
-    final hakkinda= new Padding(
+    final ilk_paragraf= new Padding(
       padding: const EdgeInsets.all(8.0),
       child: new Text(
-        'Prograrımıza hoşgeldiniz. Bu program sizlere trafikteyken diğer insanlarala iletişim içinde kalmanız amacıyla yaratılmıştır',
+        'Prograrımıza hoşgeldiniz. Bu program sizlere trafikteyken diğer insanlarala iletişim içinde kalmanız amacıyla yaratılmıştır.',
         style: new TextStyle(fontSize: 16.0, color: Colors.white),
       ),
     );
-    final not = new Padding(
+    final ikinci_paragraf = new Padding(
       padding: const EdgeInsets.all(8.0),
-      child:  new Text('Not: Bu programın kötüye kullanılması uyarısız ban sebebidir.',
+      child:  new Text('Uygulama içerisinde yapılan her paylaşım paylaşan kişilerin sorumluluğundadır.',
         style: new TextStyle(fontSize: 16.0, color: Colors.white),),
     );
-    final sorumluluk = new Padding(
+    final ucuncu_paragraf = new Padding(
       padding: const EdgeInsets.all(8.0),
-      child:  new Text('Uygulama içerisinde yapılan her payşlsım',
-        style: new TextStyle(fontSize: 16.0, color: Colors.white),),
-    );
-    final odev = new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child:  new Text('Bu uygulama şu ders için şu şu şu kişiler tarafından',
+      child:  new Text('Bu uygulama SE 380 dersi kapsamında \n\n-Ege Şenkul, \n-Rıza Özonuk, \n-Onat Göksel tarafından oluşturulmuştur.',
         style: new TextStyle(fontSize: 16.0, color: Colors.white),),
     );
 
 
-    final deneme =
+    final sayfa =
 
-    new IconButton(icon: new Icon(Icons.arrow_back_ios),
+    new IconButton(alignment:new Alignment(-40.0, 30.0), icon: new Icon(Icons.arrow_back_ios,color: Colors.white,),
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.of(context).pop();
         });
 
 
@@ -68,7 +63,7 @@ class SettingsPage extends StatelessWidget {
         ]),
       ),
       child: new Column(
-        children: <Widget>[deneme,merhaba, hakkinda,not,sorumluluk,odev]
+          children: <Widget>[sayfa,logo,merhaba, ilk_paragraf,ikinci_paragraf,ucuncu_paragraf]
       ),
     );
 
