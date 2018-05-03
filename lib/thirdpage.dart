@@ -87,6 +87,10 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                   _kosulGuncelleBenimGonderilerim;
                 }
             ),
+            new Padding(
+              padding: new EdgeInsets.only(left: 9.0),
+              child: new Text("Kategoriler"),
+            ),
             new Divider(),
             new ListTile(
               title: new Text("Tümü"),
@@ -121,6 +125,10 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               title: new Text("Duyurular"),
               trailing: new Icon(Icons.error),
               onTap: _kosulGuncelleDuyurular,
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(left: 9.0),
+              child: new Text("Yönetici Özel"),
             ),
             new Divider(),
             new ListTile(
