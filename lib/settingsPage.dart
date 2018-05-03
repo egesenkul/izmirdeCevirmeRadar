@@ -5,46 +5,8 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final logo = new Hero(
-      tag: 'logo',
-      child: new Padding(
-        padding: const EdgeInsets.all(1.0),
-        child:  new CircleAvatar(
-          radius: 144.0,
-          backgroundColor: Colors.transparent,
-          backgroundImage: new AssetImage('assets/ege.jpg'),
-        ),
-      ),
-    );
 
-    final merhaba = new Padding(
-      padding: const EdgeInsets.all(1.0),
-      child: new Text(
-        'İzmir Trafik Çevirme',
-        style: new TextStyle(fontSize: 28.0, color: Colors.white),
-      ),
-    );
-
-    final ilk_paragraf= new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: new Text(
-        'Prograrımıza hoşgeldiniz. Bu program sizlere trafikteyken diğer insanlarala iletişim içinde kalmanız amacıyla yaratılmıştır.',
-        style: new TextStyle(fontSize: 16.0, color: Colors.white),
-      ),
-    );
-    final ikinci_paragraf = new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child:  new Text('Uygulama içerisinde yapılan her paylaşım paylaşan kişilerin sorumluluğundadır.',
-        style: new TextStyle(fontSize: 16.0, color: Colors.white),),
-    );
-    final ucuncu_paragraf = new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child:  new Text('Bu uygulama SE 380 dersi kapsamında \n\n-Ege Şenkul, \n-Rıza Özonuk, \n-Onat Göksel tarafından oluşturulmuştur.',
-        style: new TextStyle(fontSize: 16.0, color: Colors.white),),
-    );
-
-
-    final sayfa =
+    final ege =
 
     new Padding(
       padding: const EdgeInsets.all(8.0),
@@ -59,25 +21,32 @@ class SettingsPage extends StatelessWidget {
       ),
     );
 
-
-
+    final riza= new TextField(
+      style: new TextStyle(color: Colors.white),
+      decoration: new InputDecoration(
+          border: InputBorder.none,
+          hintStyle: new TextStyle(color: Colors.white),
+          hintText: 'Yazı gir bakam'
+      ),
+    );
 
     final body = new Container(
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.all(28.0),
-      decoration: new BoxDecoration(
-        gradient: new LinearGradient(colors: [
-          Colors.blue,
-          Colors.lightBlueAccent,
-        ]),
-      ),
-      child: new ListView(
-          children: <Widget>[
-      new Column(
-      children: <Widget>[sayfa,logo,merhaba, ilk_paragraf,ikinci_paragraf,ucuncu_paragraf]
-      ),
+    width: MediaQuery.of(context).size.width,
+    padding: const EdgeInsets.all(28.0),
+    decoration: new BoxDecoration(
+    gradient: new LinearGradient(colors: [
+    Colors.blue,
+    Colors.lightBlueAccent,
+    ]),
+    ),
+    child: new ListView(
+    children: <Widget>[
+    new Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[ege,riza]
+    ),
     ],
-      )
+    )
     );
 
     return new Scaffold(
