@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatelessWidget {
+class hakkimizdaPage extends StatelessWidget {
   static String tag = 'Hakkımızda';
 
   @override
@@ -12,7 +12,7 @@ class SettingsPage extends StatelessWidget {
         child:  new CircleAvatar(
           radius: 144.0,
           backgroundColor: Colors.transparent,
-          backgroundImage: new AssetImage('assets/ege.jpg'),
+          backgroundImage: new AssetImage('assets/izmirde_cevirme_logo.png'),
         ),
       ),
     );
@@ -63,21 +63,21 @@ class SettingsPage extends StatelessWidget {
 
 
     final body = new Container(
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.all(28.0),
-      decoration: new BoxDecoration(
-        gradient: new LinearGradient(colors: [
-          Colors.blue,
-          Colors.lightBlueAccent,
-        ]),
-      ),
-      child: new ListView(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(28.0),
+        decoration: new BoxDecoration(
+          gradient: new LinearGradient(colors: [
+            Colors.blue,
+            Colors.lightBlueAccent,
+          ]),
+        ),
+        child: new ListView(
           children: <Widget>[
-      new Column(
-      children: <Widget>[sayfa,logo,merhaba, ilk_paragraf,ikinci_paragraf,ucuncu_paragraf]
-      ),
-    ],
-      )
+            new Column(
+                children: <Widget>[sayfa,logo,merhaba, ilk_paragraf,ikinci_paragraf,ucuncu_paragraf]
+            ),
+          ],
+        )
     );
 
     return new Scaffold(
