@@ -295,9 +295,9 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   }
 
   void _cikisYap(){
-    _onPress();
-    Navigator.push(context, new MaterialPageRoute(
-        builder: (context) => new MyApp()));
+     _onPress();
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil('/MyApp', (Route<dynamic> route) => false);
   }
 
   void _cikisOnay() {
