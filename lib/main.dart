@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       // Sayfa Geçiş İşlemleri
       // Routes Oluştur
       routes: <String, WidgetBuilder>{
+        '/MyApp': (BuildContext context) => new MyApp(),
         // Sonra Sayfaları Tanıt
         // 2.Sayfa
         SecondDartPAGE.routeName:(BuildContext context) =>
