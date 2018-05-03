@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:izmircevirme/main.dart';
 import 'package:izmircevirme/newNewsPage.dart';
 import 'package:izmircevirme/settingsPage.dart';
+import 'package:izmircevirme/hakkimizda.dart';
+
 
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -143,7 +145,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                 onTap: () {
                   _onPress();
                   Navigator.push(context, new MaterialPageRoute(
-                      builder: (context) => new SettingsPage()));
+                      builder: (context) => new hakkimizdaPage()));
                 }
             ),
             new ListTile(
