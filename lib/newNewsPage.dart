@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
+import 'package:izmircevirme/thirdpage.dart';
 
 
 class NewNewsPage extends StatefulWidget {
@@ -44,8 +46,11 @@ class _NewNewsPageState extends State<NewNewsPage> {
     });
   }
 
+  final textfield = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
@@ -86,10 +91,11 @@ class _NewNewsPageState extends State<NewNewsPage> {
                     ),
                   ],
                 ),
-                new TextFormField(
+                new TextField(
                   decoration: new InputDecoration(
                     labelText: 'Açıklama Girin',
                   ),
+                  controller: textfield,
                 ),
                 new Padding(padding: const EdgeInsets.only(top: 20.0)),
                 new Center(
@@ -120,7 +126,6 @@ class _NewNewsPageState extends State<NewNewsPage> {
     );
   }
 
-
   void _geriGel(){
     Navigator.of(context).pop();
   }
@@ -128,11 +133,21 @@ class _NewNewsPageState extends State<NewNewsPage> {
     AlertDialog dialog = new AlertDialog(
       content: new Text("Haberi yayınlamak istediğinize emin misiniz?"),
       actions: <Widget>[
-        new FlatButton(onPressed: null, child: new Text("Evet")),
+        new FlatButton(onPressed: _makePost, child: new Text("Evet")),
         new FlatButton(onPressed: _geriGel, child: new Text("Hayır")),
       ],
 
     );
     showDialog(context: context, child: dialog);
+  }
+
+  void _makePost() async{
+    Dio dio = new Dio();
+    Response response;
+    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":_value,"aciklama":textfield.text,"resimUrl":"http://yenierdekgazetesi.com/resimler/2017-5/31/1827209906635.jpg","gondericiAdi":"Ege Senkul","gondericiEmail":"egesenkul@gmail.com","gondericiResim":"https://firebasestorage.googleapis.com/v0/b/esfsf-a749e.appspot.com/o/ege.jpg?alt=media&token=9eae18b1-2d0d-49d1-8096-013a08247a17","onay":"1"});
+    print(response.data.toString());
+    _geriGel();
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil('/ThirdDartPAGE', (Route<dynamic> route) => false);
   }
 }
