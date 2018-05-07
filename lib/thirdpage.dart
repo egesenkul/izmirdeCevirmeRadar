@@ -280,17 +280,17 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     filtreli = new List();
     for(int i=0;i<data.length;i++){
       if(baslik.toString() == "Haberler"){
-        if(data[i]["onay"]==true){
+        if(data[i]["onay"]=="1"){
           filtreli.add(data[i]);
         }
       }
       else if(baslik.toString() == "Onaylanmamış Gönderiler"){
-        if(data[i]["onay"]==false){
+        if(data[i]["onay"]=="0"){
           filtreli.add(data[i]);
         }
       }
       else if(baslik.toString() == "Kayıp Eşyalar"){
-        if(data[i]["konu"]=="Kayip Esyalar" && data[i]["onay"]==true){
+        if(data[i]["konu"]=="Kayip Esyalar" && data[i]["onay"]=="1"){
           filtreli.add(data[i]);
         }
       }
