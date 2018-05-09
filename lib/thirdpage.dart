@@ -278,7 +278,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
 
   void _listeFiltrele(){
     filtreli = new List();
-    for(int i=0;i<data.length;i++){
+    for(int i=data.length-1;i>=0;i--){
       if(baslik.toString() == "Haberler"){
         if(data[i]["onay"]=="1"){
           filtreli.add(data[i]);
