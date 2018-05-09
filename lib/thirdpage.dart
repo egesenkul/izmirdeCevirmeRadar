@@ -79,7 +79,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                 onTap: () {
                   _onPress();
                   Navigator.push(context, new MaterialPageRoute(
-                      builder: (context) => new NewNewsPage()));
+                      builder: (context) => new NewNewsPage(ege:widget.value)));
                 }
 
             ),

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
@@ -9,6 +10,9 @@ import 'package:izmircevirme/thirdpage.dart';
 
 
 class NewNewsPage extends StatefulWidget {
+  final FirebaseUser ege;
+  static const String routeName = "/NewNewsPage";
+  NewNewsPage ({Key key,this.ege}) : super(key:key);
   @override
   _NewNewsPageState createState() => new _NewNewsPageState();
 }
@@ -141,13 +145,25 @@ class _NewNewsPageState extends State<NewNewsPage> {
     showDialog(context: context, child: dialog);
   }
 
+  void _haberYayinlandi() {
+    AlertDialog dialog = new AlertDialog(
+      content: new Text("Haberiniz gönderilmiştir. Admin onayladıktan sonra görebilirsiniz."),
+      actions: <Widget>[
+        new FlatButton(onPressed: _geriGel, child: new Text("Tamam")),
+      ],
+
+    );
+    showDialog(context: context, child: dialog);
+  }
+
   void _makePost() async{
     Dio dio = new Dio();
     Response response;
-    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":_value,"aciklama":textfield.text,"resimUrl":"http://yenierdekgazetesi.com/resimler/2017-5/31/1827209906635.jpg","gondericiAdi":"Ege Senkul","gondericiEmail":"egesenkul@gmail.com","gondericiResim":"https://firebasestorage.googleapis.com/v0/b/esfsf-a749e.appspot.com/o/ege.jpg?alt=media&token=9eae18b1-2d0d-49d1-8096-013a08247a17","onay":"1"});
+    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":_value,"aciklama":textfield.text,"resimUrl":"http://yenierdekgazetesi.com/resimler/2017-5/31/1827209906635.jpg","gondericiAdi":"${widget.ege.displayName}","gondericiEmail":"${widget.ege.email}","gondericiResim":"${widget.ege.photoUrl}","onay":"1"});
     print(response.data.toString());
     _geriGel();
-    Navigator.of(context)
-        .pushNamedAndRemoveUntil('/ThirdDartPAGE', (Route<dynamic> route) => false);
+    _haberYayinlandi();
+    _value = _values.elementAt(0);
+    textfield.text="";
   }
 }
