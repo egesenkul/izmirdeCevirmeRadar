@@ -23,6 +23,8 @@ class ThirdDartPAGE extends StatefulWidget {
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   List data;
   List filtreli;
+  List adminler;
+  bool kullaniciAdmin;
   var dogruKonu="";
   var baslik="Haberler";
   Future<String> getData() async {
@@ -32,9 +34,16 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
           "Accept": "application/json"
         }
     );
+    var response2 = await http.get(
+        Uri.encodeFull("http://izmirdecevirme.azurewebsites.net/api/admin"),
+        headers: {
+          "Accept": "application/json"
+        }
+    );
 
     this.setState(() {
       data = JSON.decode(response.body);
+      adminler=JSON.decode(response2.body);
       _listeFiltrele();
     });
 
@@ -45,7 +54,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     this.getData();
   }
   Widget build(BuildContext context) {
-
+    _adminKontrol();
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("$baslik"),
@@ -228,6 +237,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     });
   }
 
+
   void _kosulGuncelleRadarlar(){
     setState((){
       baslik="Radarlar ve Çevirmeler";
@@ -333,6 +343,19 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       _listeFiltrele();
       _geriGel();
     });
+  }
+
+  void _adminKontrol(){
+    var i;
+    if(adminler!=null){
+      for(i=0;i<adminler.length;i++){
+        if(adminler[i]["email"].toString()==widget.value.email){
+          this.setState((){
+            kullaniciAdmin=true;
+          });
+        }
+      }
+    }
   }
 
   void _onPress() {
