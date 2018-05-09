@@ -1,87 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 
 class SettingsPage extends StatelessWidget {
-  static String tag = 'Hakkımızda';
 
   @override
   Widget build(BuildContext context) {
-
-    final ege =
-
-    new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: new Row(
-        children: <Widget>[
-          new IconButton(icon:
-          new Icon(Icons.arrow_back_ios,color: Colors.white,),
+    return new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: new ThemeData(
+        primaryColor: Colors.blue,
+        primarySwatch: Colors.green,
+      ),
+      home: new Scaffold(
+        appBar: new AppBar(
+          leading: new IconButton(icon: new Icon(Icons.arrow_back_ios),
               onPressed: () {
-                Navigator.of(context).pop();
-              }),
-        ],
-      ),
-    );
-
-
-    final onat =
-
-    new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: new Row(
-        children: <Widget>[
-          new IconButton(icon:
-          new Icon(Icons.add_box,color: Colors.white,),
-              onPressed: () {
-                null;
-              }),
-        ],
-      ),
-    );
-
-
-    final riza= new TextField(
-      style: new TextStyle(color: Colors.white),
-      decoration: new InputDecoration(
-          border: InputBorder.none,
-          hintStyle: new TextStyle(color: Colors.white),
-          hintText: 'Yazı gir bakam'
-      ),
-    );
-
-
-
-    final onat2= new Text(
-      "TEXT  BOX DENEME",
-      style: new TextStyle(fontSize: 20.0),
-    );
-
-
-
-    final body = new Container(
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.all(28.0),
-        decoration: new BoxDecoration(
-          gradient: new LinearGradient(colors: [
-            Colors.blue,
-            Colors.lightBlueAccent,
-          ]),
+        Navigator.of(context).pop();
+        }),
+          title: new Text('Admin Ata'),
         ),
-        child: new ListView(
+        body: new ListView(
+          padding: new EdgeInsets.all(32.0),
           children: <Widget>[
             new Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[onat2,ege,riza,onat]
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    new Text(
+                      "Mail Adresi :",
+                      style: new TextStyle(fontSize: 20.0),
+                    )
+                  ],
+                ),
+                new TextField(
+                  decoration: new InputDecoration(
+                    labelText: 'mail@izmirdecevirme.com',
+                  ),
+                  controller: null,
+                ),
+                new Padding(padding: const EdgeInsets.only(top: 20.0)),
+                new Padding(padding: const EdgeInsets.only(top: 20.0)),
+
+              ],
             ),
           ],
-        )
+        ),
+        floatingActionButton: new FloatingActionButton(
+          onPressed: null,
+          tooltip: 'Haber Oluştur',
+          child: new Icon(Icons.send),
+        ),
+      ),
     );
-
-    return new Scaffold(
-      body: body,
-    );
-
-
-
-
   }
 
 }

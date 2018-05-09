@@ -140,6 +140,15 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               trailing: new Icon(Icons.touch_app),
               onTap: _kosulGuncelleOnaylanmamisGonderiler,
             ),
+            new ListTile(
+                title: new Text("Admin Ata"),
+                trailing: new Icon(Icons.settings),
+                onTap: () {
+                  _onPress();
+                  Navigator.push(context, new MaterialPageRoute(
+                      builder: (context) => new SettingsPage()));
+                }
+            ),
             new Divider(),
             new ListTile(
                 title: new Text("Hakkımızda"),
@@ -148,15 +157,6 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                   _onPress();
                   Navigator.push(context, new MaterialPageRoute(
                       builder: (context) => new hakkimizdaPage()));
-                }
-            ),
-            new ListTile(
-                title: new Text("Ayarlar"),
-                trailing: new Icon(Icons.settings),
-                onTap: () {
-                  _onPress();
-                  Navigator.push(context, new MaterialPageRoute(
-                      builder: (context) => new SettingsPage()));
                 }
             ),
             new ListTile(
