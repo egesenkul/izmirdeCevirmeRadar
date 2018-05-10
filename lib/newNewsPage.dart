@@ -159,7 +159,7 @@ class _NewNewsPageState extends State<NewNewsPage> {
   void _makePost() async{
     Dio dio = new Dio();
     Response response;
-    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":_value,"aciklama":textfield.text,"resimUrl":"http://yenierdekgazetesi.com/resimler/2017-5/31/1827209906635.jpg","gondericiAdi":"${widget.ege.displayName}","gondericiEmail":"${widget.ege.email}","gondericiResim":"${widget.ege.photoUrl}","onay":"1"});
+    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":_value,"aciklama":textfield.text,"resimUrl":"http://yenierdekgazetesi.com/resimler/2017-5/31/1827209906635.jpg","gondericiAdi":"${widget.ege.displayName}","gondericiEmail":"${widget.ege.email}","gondericiResim":"${widget.ege.photoUrl}","onay":"0"});
     print(response.data.toString());
     _geriGel();
     _haberYayinlandi();
