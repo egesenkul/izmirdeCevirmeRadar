@@ -95,9 +95,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             new ListTile(
                 title: new Text("Benim Gönderilerim"),
                 trailing: new Icon(Icons.person),
-                onTap: () {
-                  _kosulGuncelleBenimGonderilerim;
-                }
+                onTap: _kosulGuncelleBenimGonderilerim,
             ),
             new Padding(
               padding: new EdgeInsets.only(left: 9.0),
@@ -223,7 +221,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   
   void _kosulGuncelleBenimGonderilerim(){
     setState((){
-      baslik='Benim Gönderilerim';
+      baslik="Benim Gönderilerim";
       _listeFiltrele();
       _geriGel();
     });
@@ -305,7 +303,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
         }
       }
       else if(baslik.toString() == "Benim Gönderilerim"){
-        if(data[i]["konu"]=="Kayip Esyalar"){
+        if(data[i]["gondericiEmail"]==widget.value.email){
           filtreli.add(data[i]);
         }
       }
