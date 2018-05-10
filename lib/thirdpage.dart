@@ -24,7 +24,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   List data;
   List filtreli;
   List adminler;
-  bool kullaniciAdmin;
+  bool kullaniciAdmin=false;
   var dogruKonu="";
   var baslik="Haberler";
   Future<String> getData() async {
@@ -60,7 +60,8 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
         title: new Text("$baslik"),
       ),
       drawer: new Drawer(
-        child: new ListView(
+        child: kullaniciAdmin?
+        new ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
               accountName: new Text("${widget.value.displayName}", style: new TextStyle(
@@ -90,12 +91,11 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                   Navigator.push(context, new MaterialPageRoute(
                       builder: (context) => new NewNewsPage(ege:widget.value)));
                 }
-
             ),
             new ListTile(
-                title: new Text("Benim Gönderilerim"),
-                trailing: new Icon(Icons.person),
-                onTap: _kosulGuncelleBenimGonderilerim,
+              title: new Text("Benim Gönderilerim"),
+              trailing: new Icon(Icons.person),
+              onTap: _kosulGuncelleBenimGonderilerim,
             ),
             new Padding(
               padding: new EdgeInsets.only(left: 9.0),
@@ -145,16 +145,113 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
             new ListTile(
               title: new Text("Onaylanmamış Gönderiler"),
               trailing: new Icon(Icons.touch_app),
+              enabled:kullaniciAdmin,
               onTap: _kosulGuncelleOnaylanmamisGonderiler,
             ),
             new ListTile(
                 title: new Text("Admin Ata"),
+                enabled:kullaniciAdmin,
                 trailing: new Icon(Icons.settings),
                 onTap: () {
                   _onPress();
                   Navigator.push(context, new MaterialPageRoute(
                       builder: (context) => new SettingsPage()));
                 }
+            ),
+            new Divider(),
+            new ListTile(
+                title: new Text("Hakkımızda"),
+                trailing: new Icon(Icons.perm_device_information),
+                onTap: () {
+                  _onPress();
+                  Navigator.push(context, new MaterialPageRoute(
+                      builder: (context) => new hakkimizdaPage()));
+                }
+            ),
+            new ListTile(
+                title: new Text("Çıkış"),
+                trailing: new Icon(Icons.power_settings_new),
+                onTap: () {
+                  _cikisOnay();
+                }
+            ),
+          ],
+        ):
+        new ListView(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              accountName: new Text("${widget.value.displayName}", style: new TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.white),),
+              accountEmail: new Text("${widget.value.email}",
+                style: new TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.white),),
+              currentAccountPicture: new GestureDetector(
+                onTap: null,
+                child: new CircleAvatar(
+                  backgroundImage: new NetworkImage(
+                      "${widget.value.photoUrl}"),
+                ),
+              ),
+              decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                      fit: BoxFit.fill,
+                      image: new NetworkImage(
+                          "https://bilgibirikimi.net/wp-content/uploads/2012/04/izmir-saat-kulesi.jpg"))
+              ),
+            ),
+            new ListTile(
+                title: new Text("Yeni Haber"),
+                trailing: new Icon(Icons.add),
+                onTap: () {
+                  _onPress();
+                  Navigator.push(context, new MaterialPageRoute(
+                      builder: (context) => new NewNewsPage(ege:widget.value)));
+                }
+            ),
+            new ListTile(
+              title: new Text("Benim Gönderilerim"),
+              trailing: new Icon(Icons.person),
+              onTap: _kosulGuncelleBenimGonderilerim,
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(left: 9.0),
+              child: new Text("Kategoriler"),
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Tümü"),
+              trailing: new Icon(Icons.assignment),
+              onTap: _tumu,
+            ),
+            new ListTile(
+              title: new Text("Radarlar ve Çevirmeler"),
+              trailing: new Icon(Icons.add_alert),
+              onTap: _kosulGuncelleRadarlar,
+            ),
+            new ListTile(
+              title: new Text("Kazalar"),
+              trailing: new Icon(Icons.block),
+              onTap: _kosulGuncelleKazalar,
+            ),
+            new ListTile(
+              title: new Text("Yol Bilgisi"),
+              trailing: new Icon(Icons.info),
+              onTap: _kosulGuncelleYolBilgisi,
+            ),
+            new ListTile(
+              title: new Text("Çekiciler"),
+              trailing: new Icon(Icons.drive_eta),
+              onTap: _kosulGuncelleCekiciler,
+            ),
+            new ListTile(
+              title: new Text("Kayıp Eşyalar"),
+              trailing: new Icon(Icons.feedback),
+              onTap: _kosulGuncelleKayipEsyalar,
+            ),
+            new ListTile(
+              title: new Text("Duyurular"),
+              trailing: new Icon(Icons.error),
+              onTap: _kosulGuncelleDuyurular,
             ),
             new Divider(),
             new ListTile(
