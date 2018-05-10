@@ -292,8 +292,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                             image: new DecorationImage(image: new NetworkImage(filtreli[index]["gondericiResim"]))
                         ),
                       ),
-                      new Text(filtreli[index]["gondericiAdi"],style: new TextStyle(fontWeight: FontWeight.bold)),
-
+                      new MaterialButton(onPressed: baslik=="Onaylanmamış Gönderiler"?_onaylaConfirm:null,child: new Text(filtreli[index]["gondericiAdi"],style: new TextStyle(fontWeight: FontWeight.bold)),)
                     ],
                   ),
                   new Image.network(
@@ -304,6 +303,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: new Text(filtreli[index]["konu"]),
+                      onTap: baslik=="Onaylanmamış Gönderiler"?_onaylaConfirm:null
                   ),
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
@@ -330,6 +330,18 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       _listeFiltrele();
       _geriGel();
     });
+  }
+
+  void _onaylaConfirm() {
+    AlertDialog dialog = new AlertDialog(
+      content: new Text("Gönderiyi onaylamak istediğinize emin misiniz?"),
+      actions: <Widget>[
+        new FlatButton(onPressed: null, child: new Text("Evet")),
+        new FlatButton(onPressed: _onPress, child: new Text("Hayır")),
+      ],
+
+    );
+    showDialog(context: context, child: dialog);
   }
 
 
