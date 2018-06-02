@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:izmircevirme/main.dart';
 import 'package:izmircevirme/newNewsPage.dart';
-import 'package:izmircevirme/settingsPage.dart';
 import 'package:izmircevirme/hakkimizda.dart';
 
 
@@ -25,6 +25,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
   List filtreli;
   List adminler;
   bool kullaniciAdmin=false;
+  var index2;
   var dogruKonu="";
   var baslik="Haberler";
   Future<String> getData() async {
@@ -147,16 +148,6 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
               trailing: new Icon(Icons.touch_app),
               enabled:kullaniciAdmin,
               onTap: _kosulGuncelleOnaylanmamisGonderiler,
-            ),
-            new ListTile(
-                title: new Text("Admin Ata"),
-                enabled:kullaniciAdmin,
-                trailing: new Icon(Icons.settings),
-                onTap: () {
-                  _onPress();
-                  Navigator.push(context, new MaterialPageRoute(
-                      builder: (context) => new SettingsPage()));
-                }
             ),
             new Divider(),
             new ListTile(
@@ -336,7 +327,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     AlertDialog dialog = new AlertDialog(
       content: new Text("Gönderiyi onaylamak istediğinize emin misiniz?"),
       actions: <Widget>[
-        new FlatButton(onPressed: null, child: new Text("Evet")),
+        new FlatButton(onPressed: _makePost, child: new Text("Evet")),
         new FlatButton(onPressed: _onPress, child: new Text("Hayır")),
       ],
 
@@ -367,6 +358,18 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
       _listeFiltrele();
       _geriGel();
     });
+  }
+
+  void _makePost() async{
+    Dio dio = new Dio();
+    Response response;
+    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":"2","aciklama":"2","resimUrl":"2","gondericiAdi":"2","gondericiEmail":"2","gondericiResim":"2","onay":"1"});
+    print(response.data.toString());
+    _geriGel();
+//    _haberYayinlandi();
+  //  _value = _values.elementAt(0);
+   // textfield.text="";
+    //_image = null;
   }
 
   void _kosulGuncelleCekiciler(){
