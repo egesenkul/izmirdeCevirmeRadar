@@ -21,6 +21,7 @@ class ThirdDartPAGE extends StatefulWidget {
 }
 
 class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
+  var Listindex;
   List data;
   List filtreli;
   List adminler;
@@ -283,7 +284,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                             image: new DecorationImage(image: new NetworkImage(filtreli[index]["gondericiResim"]))
                         ),
                       ),
-                      new MaterialButton(onPressed: baslik=="Onaylanmamış Gönderiler"?_onaylaConfirm:null,child: new Text(filtreli[index]["gondericiAdi"],style: new TextStyle(fontWeight: FontWeight.bold)),)
+                      new MaterialButton(onPressed: baslik=="Onaylanmamış Gönderiler"?()=>setState((){Listindex = index;}):null,child: new Text(filtreli[index]["gondericiAdi"],style: new TextStyle(fontWeight: FontWeight.bold)),)
                     ],
                   ),
                   new Image.network(
@@ -294,7 +295,7 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
                       style: new TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: new Text(filtreli[index]["konu"]),
-                      onTap: baslik=="Onaylanmamış Gönderiler"?_onaylaConfirm:null
+                      onTap: baslik=="Onaylanmamış Gönderiler"?() => _onaylaConfirm(index):null
                   ),
                   new Padding(
                     padding: const EdgeInsets.only(top: 15.0),
@@ -323,14 +324,13 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     });
   }
 
-  void _onaylaConfirm() {
+  void _onaylaConfirm(var gonderiSira) {
     AlertDialog dialog = new AlertDialog(
       content: new Text("Gönderiyi onaylamak istediğinize emin misiniz?"),
       actions: <Widget>[
-        new FlatButton(onPressed: _makePost, child: new Text("Evet")),
+        new FlatButton(onPressed: ()=>_makePost(gonderiSira), child: new Text("Evet")),
         new FlatButton(onPressed: _onPress, child: new Text("Hayır")),
       ],
-
     );
     showDialog(context: context, child: dialog);
   }
@@ -360,16 +360,12 @@ class _ThirdDartPAGEState extends State<ThirdDartPAGE> {
     });
   }
 
-  void _makePost() async{
+  void _makePost(var sira) async{
     Dio dio = new Dio();
     Response response;
-    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":"2","aciklama":"2","resimUrl":"2","gondericiAdi":"2","gondericiEmail":"2","gondericiResim":"2","onay":"1"});
+    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":filtreli[sira]["konu"],"aciklama":filtreli[sira]["aciklama"],"resimUrl":filtreli[sira]["resimUrl"],"gondericiAdi":filtreli[sira]["gondericiAdi"],"gondericiEmail":filtreli[sira]["gondericiEmail"],"gondericiResim":filtreli[sira]["gondericiResim"],"onay":"1"});
     print(response.data.toString());
     _geriGel();
-//    _haberYayinlandi();
-  //  _value = _values.elementAt(0);
-   // textfield.text="";
-    //_image = null;
   }
 
   void _kosulGuncelleCekiciler(){
