@@ -7,6 +7,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 import 'package:izmircevirme/thirdpage.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:math';
 
 
 class NewNewsPage extends StatefulWidget {
@@ -157,9 +159,15 @@ class _NewNewsPageState extends State<NewNewsPage> {
   }
 
   void _makePost() async{
+    final String rand1 = "${new Random().nextInt(10000)}";
+    final String rand2 = "${new Random().nextInt(10000)}";
+    final String rand3 = "${new Random().nextInt(10000)}";
+    final StorageReference ref = FirebaseStorage.instance.ref().child('${rand1}_${rand2}_${rand3}.jpg');
+    final StorageUploadTask uploadTask = ref.put(_image);
+    final Uri downloadUrl = (await uploadTask.future).downloadUrl;
     Dio dio = new Dio();
     Response response;
-    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":_value,"aciklama":textfield.text,"resimUrl":"http://yenierdekgazetesi.com/resimler/2017-5/31/1827209906635.jpg","gondericiAdi":"${widget.ege.displayName}","gondericiEmail":"${widget.ege.email}","gondericiResim":"${widget.ege.photoUrl}","onay":"0"});
+    response = await dio.post("http://izmirdecevirme.azurewebsites.net/api/haber",data: {"konu":_value,"aciklama":textfield.text,"resimUrl":downloadUrl,"gondericiAdi":"${widget.ege.displayName}","gondericiEmail":"${widget.ege.email}","gondericiResim":"${widget.ege.photoUrl}","onay":"0"});
     print(response.data.toString());
     _geriGel();
     _haberYayinlandi();
