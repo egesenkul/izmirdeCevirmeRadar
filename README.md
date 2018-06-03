@@ -1,4 +1,4 @@
-# izmircevirme
+# İzmir'de Trafik Çevirme Radar
 
 İzmir'de Trafik Çevirme Radar için oluşturulmuş basit bir mobil uygulamadır. 
 
