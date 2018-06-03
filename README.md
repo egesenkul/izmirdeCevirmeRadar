@@ -1,8 +1,5 @@
 # izmircevirme
 
-İzmir&#x27;de Trafik, Çevirme ve Radar&#x27;ın mobil uygulamasıdır.
+İzmir'de Trafik Çevirme Radar için oluşturulmuş basit bir mobil uygulamadır. 
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+![izmirde-cevirme](https://user-images.githubusercontent.com/36307448/40885159-c9d2db44-6729-11e8-80d3-7210de1f6349.gif)
